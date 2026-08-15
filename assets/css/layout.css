@@ -1,0 +1,19 @@
+.tw-container {
+    width: min(calc(100% - 64px),
+            var(--tw-container));
+
+    margin-inline: auto;
+}
+
+.site-main {
+    position: relative;
+}
+
+@media (max-width: 768px) {
+
+    .tw-container {
+        width: min(calc(100% - 36px),
+                var(--tw-container));
+    }
+
+}

@@ -1,0 +1,519 @@
+/* ============================================================
+   THOMAS WILLIAMS, CPA, PLLC
+   Global Design System
+============================================================ */
+
+:root {
+
+    /* ========================================================
+       BRAND COLORS
+    ======================================================== */
+
+    --tw-blue: #0570A4;
+    --tw-blue-dark: #04577F;
+    --tw-blue-deep: #073D57;
+    --tw-blue-light: #E8F4F9;
+
+    /* ========================================================
+       NEUTRALS
+    ======================================================== */
+
+    --tw-white: #FFFFFF;
+    --tw-off-white: #FFFEF8;
+    --tw-surface: #F5F7F8;
+
+    --tw-text: #18252C;
+    --tw-text-soft: #52616A;
+    --tw-text-muted: #74828A;
+
+    --tw-border: #DDE4E7;
+
+    /* ========================================================
+       LEGACY ALIASES
+       Mantienen compatibilidad mientras terminamos
+       de migrar todos los componentes.
+    ======================================================== */
+
+    --tw-color-bg: var(--tw-white);
+    --tw-color-surface: var(--tw-surface);
+
+    --tw-color-dark: var(--tw-text);
+    --tw-color-dark-soft: #24343C;
+
+    --tw-color-text: var(--tw-text);
+    --tw-color-muted: var(--tw-text-muted);
+
+    --tw-color-accent: var(--tw-blue);
+    --tw-color-accent-light: #56A6C9;
+
+    --tw-color-border: var(--tw-border);
+
+    /* ========================================================
+       LAYOUT
+    ======================================================== */
+
+    --tw-container: 1280px;
+    --tw-container-wide: 1440px;
+
+    --tw-header-height: 76px;
+
+    /* ========================================================
+       SPACING
+    ======================================================== */
+
+    --tw-section-space:
+        clamp(72px, 8vw, 120px);
+
+    --tw-section-space-small:
+        clamp(52px, 6vw, 88px);
+
+    /* ========================================================
+       RADIUS
+    ======================================================== */
+
+    --tw-radius-xs: 4px;
+    --tw-radius-sm: 8px;
+    --tw-radius-md: 14px;
+    --tw-radius-lg: 24px;
+
+    /* ========================================================
+       SHADOWS
+    ======================================================== */
+
+    --tw-shadow-soft:
+        0 18px 60px rgba(13, 45, 61, 0.08);
+
+    --tw-shadow-card:
+        0 10px 35px rgba(13, 45, 61, 0.07);
+
+    /* ========================================================
+       TRANSITIONS
+    ======================================================== */
+
+    --tw-transition:
+        280ms cubic-bezier(.22, 1, .36, 1);
+
+    --tw-transition-slow:
+        700ms cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* ============================================================
+   RESET
+============================================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+
+    scroll-behavior: smooth;
+
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    min-height: 100vh;
+
+    background:
+        var(--tw-white);
+
+    color:
+        var(--tw-text);
+
+    font-family:
+        "Inter",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    line-height: 1.65;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body.tw-menu-open {
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   TYPOGRAPHY
+============================================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+
+    color:
+        var(--tw-text);
+
+    font-family:
+        "Inter",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    font-weight: 500;
+
+    letter-spacing: -0.035em;
+}
+
+h1 {
+    font-size:
+        clamp(48px, 6vw, 86px);
+
+    line-height: .98;
+}
+
+h2 {
+    font-size:
+        clamp(38px, 4.6vw, 68px);
+
+    line-height: 1.02;
+}
+
+h3 {
+    font-size:
+        clamp(26px, 2.6vw, 38px);
+
+    line-height: 1.1;
+}
+
+p {
+    margin-top: 0;
+
+    color:
+        var(--tw-text-soft);
+}
+
+strong {
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   LINKS
+============================================================ */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ============================================================
+   MEDIA
+============================================================ */
+
+img {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ============================================================
+   FORM ELEMENTS
+============================================================ */
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    color: inherit;
+}
+
+
+/* ============================================================
+   GLOBAL CONTAINER
+============================================================ */
+
+.tw-container {
+    width:
+        min(calc(100% - 48px),
+            var(--tw-container));
+
+    margin-inline: auto;
+}
+
+
+/* ============================================================
+   GLOBAL SECTION
+============================================================ */
+
+.tw-section {
+    padding:
+        var(--tw-section-space) 0;
+}
+
+.tw-section--small {
+    padding:
+        var(--tw-section-space-small) 0;
+}
+
+
+/* ============================================================
+   EYEBROWS / LABELS
+============================================================ */
+
+.tw-eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+
+    color:
+        var(--tw-blue);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    text-transform: uppercase;
+    letter-spacing: .13em;
+}
+
+.tw-eyebrow::before {
+    content: "";
+
+    width: 28px;
+    height: 2px;
+
+    background:
+        var(--tw-blue);
+}
+
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+
+.tw-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    min-height: 48px;
+
+    padding:
+        13px 22px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        var(--tw-radius-xs);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background var(--tw-transition),
+        border-color var(--tw-transition),
+        color var(--tw-transition),
+        transform var(--tw-transition);
+}
+
+.tw-button--primary {
+    background:
+        var(--tw-blue);
+
+    color:
+        var(--tw-white);
+}
+
+.tw-button--primary:hover {
+    background:
+        var(--tw-blue-dark);
+
+    transform:
+        translateY(-2px);
+}
+
+.tw-button--outline {
+    border-color:
+        var(--tw-blue);
+
+    background:
+        transparent;
+
+    color:
+        var(--tw-blue);
+}
+
+.tw-button--outline:hover {
+    background:
+        var(--tw-blue);
+
+    color:
+        var(--tw-white);
+}
+
+.tw-button--text {
+    min-height: auto;
+
+    padding: 0;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    color:
+        var(--tw-blue);
+
+    border-bottom:
+        1px solid rgba(5, 112, 164, .35);
+}
+
+.tw-button--text:hover {
+    border-color:
+        var(--tw-blue);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* ============================================================
+   CARD BASE
+============================================================ */
+
+.tw-card {
+    background:
+        var(--tw-white);
+
+    border:
+        1px solid var(--tw-border);
+
+    border-radius:
+        var(--tw-radius-sm);
+
+    box-shadow:
+        var(--tw-shadow-card);
+}
+
+
+/* ============================================================
+   BACKGROUNDS
+============================================================ */
+
+.tw-bg-white {
+    background:
+        var(--tw-white);
+}
+
+.tw-bg-soft {
+    background:
+        var(--tw-surface);
+}
+
+.tw-bg-blue-light {
+    background:
+        var(--tw-blue-light);
+}
+
+.tw-bg-deep {
+    background:
+        var(--tw-blue-deep);
+
+    color:
+        var(--tw-white);
+}
+
+
+/* ============================================================
+   SCREEN READER
+============================================================ */
+
+.screen-reader-text {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+    }
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 700px) {
+
+    :root {
+        --tw-header-height: 68px;
+    }
+
+    .tw-container {
+        width:
+            min(calc(100% - 32px),
+                var(--tw-container));
+    }
+
+}
