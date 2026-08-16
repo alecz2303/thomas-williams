@@ -34,6 +34,7 @@ $tw_theme_files = [
     '/inc/seo.php',
     '/inc/admin.php',
     '/inc/ajax.php',
+    '/inc/contact-form.php',
     '/inc/bilingual.php',
 
     // Integraciones.

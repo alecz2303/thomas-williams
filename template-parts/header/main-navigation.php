@@ -8,31 +8,94 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+
+$smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.aspx?ReturnUrl=%2fusers%2fsecure%2fHome.aspx';
 ?>
 
 <nav
     id="primary-navigation"
     class="tw-navigation"
-    aria-label="Primary Navigation"
+    aria-label="<?php esc_attr_e('Primary Navigation', 'thomas-williams'); ?>"
 >
 
-    <?php
-    wp_nav_menu(
-        [
-            'theme_location' => 'primary',
-            'container'      => false,
-            'menu_class'     => 'tw-navigation__menu',
-            'fallback_cb'    => false,
-        ]
-    );
-    ?>
+    <div class="tw-navigation__mobile-head">
 
-    <div class="tw-navigation__language">
-        <a href="#" class="is-active">EN</a>
+        <a
+            href="<?php echo esc_url(home_url('/')); ?>"
+            class="tw-navigation__mobile-brand"
+            aria-label="<?php echo esc_attr(get_bloginfo('name')); ?>"
+        >
 
-        <span>/</span>
+            <span class="tw-navigation__mobile-brand-name">
+                Thomas Williams
+            </span>
 
-        <a href="#">ES</a>
+            <span class="tw-navigation__mobile-brand-subtitle">
+                CPA, PLLC
+            </span>
+
+        </a>
+
+    </div>
+
+    <div class="tw-navigation__main">
+
+        <?php
+        wp_nav_menu(
+            [
+                'theme_location' => 'primary',
+                'container'      => false,
+                'menu_class'     => 'tw-navigation__menu',
+                'fallback_cb'    => false,
+            ]
+        );
+        ?>
+
+    </div>
+
+    <div class="tw-navigation__mobile-actions">
+
+        <a
+            href="<?php echo esc_url($smartvault_url); ?>"
+            class="tw-navigation__mobile-portal"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <span>
+                Client Portal
+            </span>
+
+            <span aria-hidden="true">
+                ↗
+            </span>
+        </a>
+
+    </div>
+
+    <div class="tw-navigation__mobile-footer">
+
+        <span class="tw-navigation__location">
+            San Antonio, Texas
+        </span>
+
+        <div class="tw-navigation__language">
+
+            <a
+                href="#"
+                class="is-active"
+                aria-current="page"
+            >
+                EN
+            </a>
+
+            <span>/</span>
+
+            <a href="#">
+                ES
+            </a>
+
+        </div>
+
     </div>
 
 </nav>

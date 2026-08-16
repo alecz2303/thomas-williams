@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const header = document.querySelector('.tw-header');
+    const header =
+        document.querySelector('.tw-header');
 
     const toggle =
         document.querySelector('.tw-nav-toggle');
@@ -8,9 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const navigation =
         document.querySelector('.tw-navigation');
 
+    const body =
+        document.body;
+
     /*
-     * Header al hacer scroll
+     * --------------------------------------------------------
+     * HEADER ON SCROLL
+     * --------------------------------------------------------
      */
+
     const handleScroll = () => {
 
         if (!header) {
@@ -19,13 +26,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (window.scrollY > 30) {
 
-            header.classList.add('is-scrolled');
+            header.classList.add(
+                'is-scrolled'
+            );
 
         } else {
 
-            header.classList.remove('is-scrolled');
+            header.classList.remove(
+                'is-scrolled'
+            );
 
         }
+
     };
 
     handleScroll();
@@ -38,33 +50,180 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     );
 
+
     /*
-     * Menú móvil
+     * --------------------------------------------------------
+     * MOBILE NAVIGATION
+     * --------------------------------------------------------
      */
+
     if (!toggle || !navigation) {
         return;
     }
 
-    toggle.addEventListener('click', () => {
+    const openMenu = () => {
+
+        toggle.setAttribute(
+            'aria-expanded',
+            'true'
+        );
+
+        toggle.setAttribute(
+            'aria-label',
+            'Close navigation'
+        );
+
+        navigation.classList.add(
+            'is-open'
+        );
+
+        toggle.classList.add(
+            'is-active'
+        );
+
+        body.classList.add(
+            'tw-menu-open'
+        );
+
+    };
+
+
+    const closeMenu = () => {
+
+        toggle.setAttribute(
+            'aria-expanded',
+            'false'
+        );
+
+        toggle.setAttribute(
+            'aria-label',
+            'Open navigation'
+        );
+
+        navigation.classList.remove(
+            'is-open'
+        );
+
+        toggle.classList.remove(
+            'is-active'
+        );
+
+        body.classList.remove(
+            'tw-menu-open'
+        );
+
+    };
+
+
+    const toggleMenu = () => {
 
         const isOpen =
             toggle.getAttribute(
                 'aria-expanded'
             ) === 'true';
 
-        toggle.setAttribute(
-            'aria-expanded',
-            String(!isOpen)
-        );
+        if (isOpen) {
 
-        navigation.classList.toggle(
-            'is-open'
-        );
+            closeMenu();
 
-        document.body.classList.toggle(
-            'tw-menu-open'
-        );
+        } else {
 
-    });
+            openMenu();
+
+        }
+
+    };
+
+
+    /*
+     * Toggle button
+     */
+
+    toggle.addEventListener(
+        'click',
+        toggleMenu
+    );
+
+
+    /*
+     * Close when clicking a navigation link
+     */
+
+    navigation
+        .querySelectorAll('a')
+        .forEach((link) => {
+
+            link.addEventListener(
+                'click',
+                () => {
+
+                    /*
+                     * Only close the mobile menu
+                     * when it is currently open.
+                     */
+
+                    if (
+                        navigation.classList.contains(
+                            'is-open'
+                        )
+                    ) {
+
+                        closeMenu();
+
+                    }
+
+                }
+            );
+
+        });
+
+
+    /*
+     * Close with ESC
+     */
+
+    document.addEventListener(
+        'keydown',
+        (event) => {
+
+            if (
+                event.key === 'Escape' &&
+                navigation.classList.contains(
+                    'is-open'
+                )
+            ) {
+
+                closeMenu();
+
+                toggle.focus();
+
+            }
+
+        }
+    );
+
+
+    /*
+     * Reset mobile state when returning
+     * to desktop dimensions.
+     */
+
+    window.addEventListener(
+        'resize',
+        () => {
+
+            if (
+                window.innerWidth > 1100 &&
+                navigation.classList.contains(
+                    'is-open'
+                )
+            ) {
+
+                closeMenu();
+
+            }
+
+        }
+    );
 
 });
