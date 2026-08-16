@@ -9,27 +9,63 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+$services_url = tw_is_spanish()
+    ? home_url('/es/servicios/')
+    : home_url('/services/');
+
 $services = [
     [
-        'number'      => '01',
-        'title'       => 'Compliance Solutions',
-        'description' => 'Practical support for tax, accounting and compliance needs.',
-        'image'       => 'service-compliance.png',
-        'url'         => home_url('/services/'),
+        'number' => '01',
+
+        'title' => tw_text(
+            'Compliance Solutions',
+            'Soluciones de Cumplimiento'
+        ),
+
+        'description' => tw_text(
+            'Practical support for tax, accounting and compliance needs.',
+            'Apoyo práctico para necesidades fiscales, contables y de cumplimiento.'
+        ),
+
+        'image' => 'service-compliance.png',
+
+        'url' => $services_url,
     ],
+
     [
-        'number'      => '02',
-        'title'       => 'Business & Individuals',
-        'description' => 'Professional guidance designed around businesses, individuals and their financial goals.',
-        'image'       => 'service-business.png',
-        'url'         => home_url('/services/'),
+        'number' => '02',
+
+        'title' => tw_text(
+            'Business & Individuals',
+            'Empresas y Personas'
+        ),
+
+        'description' => tw_text(
+            'Professional guidance designed around businesses, individuals and their financial goals.',
+            'Orientación profesional diseñada para empresas, personas y sus objetivos financieros.'
+        ),
+
+        'image' => 'service-business.png',
+
+        'url' => $services_url,
     ],
+
     [
-        'number'      => '03',
-        'title'       => 'Real Estate Investment Consultancy',
-        'description' => 'Insight and advisory support for real estate investment decisions.',
-        'image'       => 'service-real-estate.png',
-        'url'         => home_url('/services/'),
+        'number' => '03',
+
+        'title' => tw_text(
+            'Real Estate Investment Consultancy',
+            'Asesoría en Inversión Inmobiliaria'
+        ),
+
+        'description' => tw_text(
+            'Insight and advisory support for real estate investment decisions.',
+            'Perspectiva y asesoría profesional para la toma de decisiones de inversión inmobiliaria.'
+        ),
+
+        'image' => 'service-real-estate.png',
+
+        'url' => $services_url,
     ],
 ];
 ?>
@@ -49,34 +85,60 @@ $services = [
                     class="tw-home-services__label"
                     data-reveal
                 >
-                    Specialized Services
+                    <?php
+                    tw_e(
+                        'Specialized Services',
+                        'Servicios Especializados'
+                    );
+                    ?>
                 </span>
 
                 <h2
                     class="tw-home-services__title"
                     data-reveal
                 >
-                    Solutions designed around
-                    <span>what matters to you.</span>
+                    <?php
+                    tw_e(
+                        'Solutions designed around',
+                        'Soluciones diseñadas para'
+                    );
+                    ?>
+
+                    <span>
+                        <?php
+                        tw_e(
+                            'what matters to you.',
+                            'lo que realmente importa.'
+                        );
+                        ?>
+                    </span>
                 </h2>
 
                 <p
                     class="tw-home-services__intro"
                     data-reveal
                 >
-                    Professional accounting, tax and advisory
-                    services with the perspective and attention
-                    to help clients move forward with confidence.
+                    <?php
+                    tw_e(
+                        'Professional accounting, tax and advisory services with the perspective and attention to help clients move forward with confidence.',
+                        'Servicios profesionales de contabilidad, impuestos y asesoría, con la perspectiva y atención necesarias para ayudar a nuestros clientes a avanzar con confianza.'
+                    );
+                    ?>
                 </p>
 
             </div>
 
             <a
-                href="<?php echo esc_url(home_url('/services/')); ?>"
+                href="<?php echo esc_url($services_url); ?>"
                 class="tw-home-services__all"
                 data-reveal
             >
-                Explore All Services
+                <?php
+                tw_e(
+                    'Explore All Services',
+                    'Conoce Todos Nuestros Servicios'
+                );
+                ?>
 
                 <span aria-hidden="true">
                     →
@@ -84,6 +146,7 @@ $services = [
             </a>
 
         </header>
+
 
         <div class="tw-home-services__grid">
 
@@ -118,6 +181,7 @@ $services = [
 
                     </a>
 
+
                     <div class="tw-home-service-card__content">
 
                         <span class="tw-home-service-card__number">
@@ -142,7 +206,12 @@ $services = [
                             href="<?php echo esc_url($service['url']); ?>"
                             class="tw-home-service-card__link"
                         >
-                            Learn More
+                            <?php
+                            tw_e(
+                                'Learn More',
+                                'Conoce Más'
+                            );
+                            ?>
 
                             <span aria-hidden="true">
                                 →
@@ -156,7 +225,7 @@ $services = [
             <?php endforeach; ?>
 
         </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
     </div>
 
 </section>

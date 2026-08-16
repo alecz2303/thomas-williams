@@ -8,6 +8,10 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+
+$contact_url = tw_is_spanish()
+    ? home_url('/es/contacto/')
+    : home_url('/contact/');
 ?>
 
 <section
@@ -24,7 +28,12 @@ if (!defined('ABSPATH')) {
                 class="tw-home-cta__label"
                 data-reveal
             >
-                Let's Talk
+                <?php
+                tw_e(
+                    'Let\'s Talk',
+                    'Hablemos'
+                );
+                ?>
             </span>
 
             <h2
@@ -32,8 +41,21 @@ if (!defined('ABSPATH')) {
                 class="tw-home-cta__title"
                 data-reveal
             >
-                Ready for a clearer
-                <span>path forward?</span>
+                <?php
+                tw_e(
+                    'Ready for a clearer',
+                    '¿Listo para avanzar con'
+                );
+                ?>
+
+                <span>
+                    <?php
+                    tw_e(
+                        'path forward?',
+                        'mayor claridad?'
+                    );
+                    ?>
+                </span>
             </h2>
 
             <div
@@ -42,15 +64,24 @@ if (!defined('ABSPATH')) {
             >
 
                 <p>
-                    Whether you need accounting, tax or advisory
-                    support, we're ready to start the conversation.
+                    <?php
+                    tw_e(
+                        'Whether you need accounting, tax or advisory support, we\'re ready to start the conversation.',
+                        'Ya sea que necesites apoyo contable, fiscal o de asesoría, estamos listos para iniciar la conversación.'
+                    );
+                    ?>
                 </p>
 
                 <a
-                    href="<?php echo esc_url(home_url('/contact/')); ?>"
+                    href="<?php echo esc_url($contact_url); ?>"
                     class="tw-home-cta__button"
                 >
-                    Contact Our Firm
+                    <?php
+                    tw_e(
+                        'Contact Our Firm',
+                        'Contacta a Nuestro Despacho'
+                    );
+                    ?>
 
                     <span aria-hidden="true">
                         →

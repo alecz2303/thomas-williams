@@ -21,7 +21,11 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
             <div class="tw-footer__brand">
 
                 <a
-                    href="<?php echo esc_url(home_url('/')); ?>"
+                    href="<?php echo esc_url(
+                        tw_is_spanish()
+                            ? home_url('/es/')
+                            : home_url('/')
+                    ); ?>"
                     class="tw-footer__brand-link"
                     aria-label="<?php echo esc_attr(get_bloginfo('name')); ?>"
                 >
@@ -37,18 +41,32 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                 </a>
 
                 <p>
-                    Accounting, tax and advisory services
-                    from San Antonio, Texas.
+                    <?php
+                    tw_e(
+                        'Accounting, tax and advisory services from San Antonio, Texas.',
+                        'Servicios de contabilidad, impuestos y asesoría desde San Antonio, Texas.'
+                    );
+                    ?>
                 </p>
 
             </div>
 
+
             <div class="tw-footer__nav">
+
+                <!-- =================================================
+                     NAVIGATION
+                ================================================== -->
 
                 <div class="tw-footer__column">
 
                     <span class="tw-footer__heading">
-                        Navigation
+                        <?php
+                        tw_e(
+                            'Navigation',
+                            'Navegación'
+                        );
+                        ?>
                     </span>
 
                     <?php
@@ -64,10 +82,20 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
 
                 </div>
 
+
+                <!-- =================================================
+                     CLIENT ACCESS
+                ================================================== -->
+
                 <div class="tw-footer__column">
 
                     <span class="tw-footer__heading">
-                        Client Access
+                        <?php
+                        tw_e(
+                            'Client Access',
+                            'Acceso a Clientes'
+                        );
+                        ?>
                     </span>
 
                     <ul class="tw-footer__menu">
@@ -80,7 +108,10 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                                 rel="noopener noreferrer"
                             >
                                 SmartVault
-                                <span aria-hidden="true">↗</span>
+
+                                <span aria-hidden="true">
+                                    ↗
+                                </span>
                             </a>
 
                         </li>
@@ -88,9 +119,18 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                         <li>
 
                             <a
-                                href="<?php echo esc_url(home_url('/payments/')); ?>"
+                                href="<?php echo esc_url(
+                                    tw_is_spanish()
+                                        ? home_url('/es/pagos/')
+                                        : home_url('/payments/')
+                                ); ?>"
                             >
-                                Make a Payment
+                                <?php
+                                tw_e(
+                                    'Make a Payment',
+                                    'Realizar un Pago'
+                                );
+                                ?>
                             </a>
 
                         </li>
@@ -99,10 +139,20 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
 
                 </div>
 
+
+                <!-- =================================================
+                     LEGAL
+                ================================================== -->
+
                 <div class="tw-footer__column">
 
                     <span class="tw-footer__heading">
-                        Legal
+                        <?php
+                        tw_e(
+                            'Legal',
+                            'Legal'
+                        );
+                        ?>
                     </span>
 
                     <?php
@@ -122,6 +172,11 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
 
         </div>
 
+
+        <!-- =====================================================
+             FOOTER BOTTOM
+        ====================================================== -->
+
         <div class="tw-footer__bottom">
 
             <p>
@@ -136,12 +191,51 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                     San Antonio, Texas
                 </span>
 
-                <span
+                <div
                     class="tw-footer__language"
-                    aria-label="English and Spanish"
+                    aria-label="<?php
+                    echo esc_attr(
+                        tw_text(
+                            'Language selector',
+                            'Selector de idioma'
+                        )
+                    );
+                    ?>"
                 >
-                    EN / ES
-                </span>
+
+                    <a
+                        href="<?php echo esc_url(
+                            tw_get_language_url('en')
+                        ); ?>"
+                        class="<?php echo !tw_is_spanish()
+                            ? 'is-active'
+                            : ''; ?>"
+                        <?php echo !tw_is_spanish()
+                            ? 'aria-current="page"'
+                            : ''; ?>
+                    >
+                        EN
+                    </a>
+
+                    <span aria-hidden="true">
+                        /
+                    </span>
+
+                    <a
+                        href="<?php echo esc_url(
+                            tw_get_language_url('es')
+                        ); ?>"
+                        class="<?php echo tw_is_spanish()
+                            ? 'is-active'
+                            : ''; ?>"
+                        <?php echo tw_is_spanish()
+                            ? 'aria-current="page"'
+                            : ''; ?>
+                    >
+                        ES
+                    </a>
+
+                </div>
 
             </div>
 

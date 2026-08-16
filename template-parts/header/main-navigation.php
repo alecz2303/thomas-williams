@@ -81,16 +81,20 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
         <div class="tw-navigation__language">
 
             <a
-                href="#"
-                class="is-active"
-                aria-current="page"
+                href="<?php echo esc_url(tw_get_language_url('en')); ?>"
+                class="<?php echo !tw_is_spanish() ? 'is-active' : ''; ?>"
+                <?php echo !tw_is_spanish() ? 'aria-current="page"' : ''; ?>
             >
                 EN
             </a>
 
             <span>/</span>
 
-            <a href="#">
+            <a
+                href="<?php echo esc_url(tw_get_language_url('es')); ?>"
+                class="<?php echo tw_is_spanish() ? 'is-active' : ''; ?>"
+                <?php echo tw_is_spanish() ? 'aria-current="page"' : ''; ?>
+            >
                 ES
             </a>
 

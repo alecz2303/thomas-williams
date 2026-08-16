@@ -10,6 +10,10 @@ if (!defined('ABSPATH')) {
 }
 
 $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.aspx?ReturnUrl=%2fusers%2fsecure%2fHome.aspx';
+
+$payments_url = tw_is_spanish()
+    ? home_url('/es/pagos/')
+    : home_url('/payments/');
 ?>
 
 <section
@@ -25,7 +29,12 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                 class="tw-client-access__label"
                 data-reveal
             >
-                Client Access
+                <?php
+                tw_e(
+                    'Client Access',
+                    'Acceso a Clientes'
+                );
+                ?>
             </span>
 
             <div class="tw-client-access__heading">
@@ -35,23 +44,45 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                     class="tw-client-access__title"
                     data-reveal
                 >
-                    Everything you need,
-                    <span>within reach.</span>
+                    <?php
+                    tw_e(
+                        'Everything you need,',
+                        'Todo lo que necesitas,'
+                    );
+                    ?>
+
+                    <span>
+                        <?php
+                        tw_e(
+                            'within reach.',
+                            'a tu alcance.'
+                        );
+                        ?>
+                    </span>
                 </h2>
 
                 <p
                     class="tw-client-access__intro"
                     data-reveal
                 >
-                    Quick access to your secure client portal
-                    and online payment options.
+                    <?php
+                    tw_e(
+                        'Quick access to your secure client portal and online payment options.',
+                        'Acceso rápido a tu portal seguro de clientes y a las opciones de pago en línea.'
+                    );
+                    ?>
                 </p>
 
             </div>
 
         </header>
 
+
         <div class="tw-client-access__grid">
+
+            <!-- =================================================
+                 SMARTVAULT
+            ================================================== -->
 
             <a
                 href="<?php echo esc_url($smartvault_url); ?>"
@@ -64,7 +95,12 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                 <div class="tw-client-access__card-content">
 
                     <span class="tw-client-access__card-kicker">
-                        Secure Client Portal
+                        <?php
+                        tw_e(
+                            'Secure Client Portal',
+                            'Portal Seguro para Clientes'
+                        );
+                        ?>
                     </span>
 
                     <h3>
@@ -72,8 +108,12 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                     </h3>
 
                     <p>
-                        Securely access your documents,
-                        files and client portal.
+                        <?php
+                        tw_e(
+                            'Securely access your documents, files and client portal.',
+                            'Accede de forma segura a tus documentos, archivos y portal de cliente.'
+                        );
+                        ?>
                     </p>
 
                 </div>
@@ -87,8 +127,13 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
 
             </a>
 
+
+            <!-- =================================================
+                 PAYMENTS
+            ================================================== -->
+
             <a
-                href="<?php echo esc_url(home_url('/payments/')); ?>"
+                href="<?php echo esc_url($payments_url); ?>"
                 class="tw-client-access__card tw-client-access__card--blue"
                 data-reveal
             >
@@ -96,16 +141,30 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                 <div class="tw-client-access__card-content">
 
                     <span class="tw-client-access__card-kicker">
-                        Client Payments
+                        <?php
+                        tw_e(
+                            'Client Payments',
+                            'Pagos de Clientes'
+                        );
+                        ?>
                     </span>
 
                     <h3>
-                        Make a Payment
+                        <?php
+                        tw_e(
+                            'Make a Payment',
+                            'Realizar un Pago'
+                        );
+                        ?>
                     </h3>
 
                     <p>
-                        Convenient access to secure
-                        online payment options.
+                        <?php
+                        tw_e(
+                            'Convenient access to secure online payment options.',
+                            'Acceso fácil y conveniente a opciones seguras de pago en línea.'
+                        );
+                        ?>
                     </p>
 
                 </div>

@@ -8,6 +8,10 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+
+$about_url = tw_is_spanish()
+    ? home_url('/es/nosotros/')
+    : home_url('/about/');
 ?>
 
 <section
@@ -25,25 +29,45 @@ if (!defined('ABSPATH')) {
                     class="tw-home-firm__label"
                     data-reveal
                 >
-                    Our Firm
+                    <?php
+                    tw_e(
+                        'Our Firm',
+                        'Nuestro Despacho'
+                    );
+                    ?>
                 </span>
 
                 <h2
                     class="tw-home-firm__title"
                     data-reveal
                 >
-                    Experience that brings
-                    <span>perspective.</span>
+                    <?php
+                    tw_e(
+                        'Experience that brings',
+                        'Experiencia que aporta'
+                    );
+                    ?>
+
+                    <span>
+                        <?php
+                        tw_e(
+                            'perspective.',
+                            'perspectiva.'
+                        );
+                        ?>
+                    </span>
                 </h2>
 
                 <p
                     class="tw-home-firm__text"
                     data-reveal
                 >
-                    Thomas Williams, CPA, PLLC provides
-                    accounting, tax and advisory services
-                    with a focus on clear guidance,
-                    personal attention and practical solutions.
+                    <?php
+                    tw_e(
+                        'Thomas Williams, CPA, PLLC provides accounting, tax and advisory services with a focus on clear guidance, personal attention and practical solutions.',
+                        'Thomas Williams, CPA, PLLC ofrece servicios de contabilidad, impuestos y asesoría con un enfoque en orientación clara, atención personalizada y soluciones prácticas.'
+                    );
+                    ?>
                 </p>
 
                 <div
@@ -54,7 +78,12 @@ if (!defined('ABSPATH')) {
                     <div class="tw-home-firm__established">
 
                         <span>
-                            Established
+                            <?php
+                            tw_e(
+                                'Established',
+                                'Fundado en'
+                            );
+                            ?>
                         </span>
 
                         <strong>
@@ -64,10 +93,15 @@ if (!defined('ABSPATH')) {
                     </div>
 
                     <a
-                        href="<?php echo esc_url(home_url('/about/')); ?>"
+                        href="<?php echo esc_url($about_url); ?>"
                         class="tw-home-firm__link"
                     >
-                        Learn More About Our Firm
+                        <?php
+                        tw_e(
+                            'Learn More About Our Firm',
+                            'Conoce Más Sobre Nuestro Despacho'
+                        );
+                        ?>
 
                         <span aria-hidden="true">
                             →
@@ -87,9 +121,17 @@ if (!defined('ABSPATH')) {
 
                     <img
                         src="<?php echo esc_url(
-                            TW_THEME_URI . '/assets/images/home/firm.png'
+                            TW_THEME_URI
+                            . '/assets/images/home/firm.png'
                         ); ?>"
-                        alt="Modern professional environment representing Thomas Williams, CPA, PLLC."
+                        alt="<?php
+                        echo esc_attr(
+                            tw_text(
+                                'Modern professional environment representing Thomas Williams, CPA, PLLC.',
+                                'Entorno profesional moderno que representa a Thomas Williams, CPA, PLLC.'
+                            )
+                        );
+                        ?>"
                         class="tw-home-firm__image"
                         loading="lazy"
                     >

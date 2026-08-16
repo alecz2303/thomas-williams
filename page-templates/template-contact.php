@@ -26,6 +26,10 @@ get_header();
     );
 
     get_template_part(
+        'template-parts/sections/contact/contact-location'
+    );
+
+    get_template_part(
         'template-parts/sections/contact/contact-details'
     );
 
