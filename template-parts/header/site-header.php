@@ -18,17 +18,14 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
 
         <div class="tw-header__brand">
 
-            <a
-                href="<?php echo esc_url(home_url('/')); ?>"
-                class="tw-header__logo"
-                aria-label="<?php echo esc_attr(get_bloginfo('name')); ?>"
-            >
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="tw-header__logo"
+                aria-label="<?php echo esc_attr(get_bloginfo('name')); ?>">
 
-                <?php if (has_custom_logo()) : ?>
+                <?php if (has_custom_logo()): ?>
 
                     <?php the_custom_logo(); ?>
 
-                <?php else : ?>
+                <?php else: ?>
 
                     <span class="tw-header__logo-text">
                         Thomas Williams
@@ -53,57 +50,38 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
 
         <div class="tw-header__actions">
 
-            <div
-                class="tw-header__language"
-                aria-label="Language selector"
-            >
-                <a
-                    href="<?php echo esc_url(tw_get_language_url('en')); ?>"
-                    class="<?php echo !tw_is_spanish() ? 'is-active' : ''; ?>"
-                    <?php echo !tw_is_spanish() ? 'aria-current="page"' : ''; ?>
-                >
+            <div class="tw-language-switch tw-language-switch--header" aria-label="<?php
+            echo esc_attr(
+                tw_text(
+                    'Language selector',
+                    'Selector de idioma'
+                )
+            );
+            ?>">
+
+                <a href="<?php echo esc_url(
+                    tw_get_language_url('en')
+                ); ?>" class="tw-language-switch__option <?php echo !tw_is_spanish()
+                     ? 'is-active'
+                     : ''; ?>">
                     EN
                 </a>
 
-                <span aria-hidden="true">
-                    /
-                </span>
-
-                <a
-                    href="<?php echo esc_url(tw_get_language_url('es')); ?>"
-                    class="<?php echo tw_is_spanish() ? 'is-active' : ''; ?>"
-                    <?php echo tw_is_spanish() ? 'aria-current="page"' : ''; ?>
-                >
+                <a href="<?php echo esc_url(
+                    tw_get_language_url('es')
+                ); ?>" class="tw-language-switch__option <?php echo tw_is_spanish()
+                     ? 'is-active'
+                     : ''; ?>">
                     ES
                 </a>
+
             </div>
 
-            <a
-                href="<?php echo esc_url($smartvault_url); ?>"
-                class="tw-header__portal"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
+            <a href="..." class="tw-header__portal">
                 Client Portal
-
-                <span
-                    class="tw-header__portal-arrow"
-                    aria-hidden="true"
-                >
-                    ↗
-                </span>
             </a>
 
-            <button
-                class="tw-nav-toggle"
-                type="button"
-                aria-expanded="false"
-                aria-controls="primary-navigation"
-                aria-label="<?php esc_attr_e(
-                    'Open navigation',
-                    'thomas-williams'
-                ); ?>"
-            >
+            <button class="tw-nav-toggle" ...>
                 <span></span>
                 <span></span>
             </button>

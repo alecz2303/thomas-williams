@@ -20,15 +20,11 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
 
             <div class="tw-footer__brand">
 
-                <a
-                    href="<?php echo esc_url(
-                        tw_is_spanish()
-                            ? home_url('/es/')
-                            : home_url('/')
-                    ); ?>"
-                    class="tw-footer__brand-link"
-                    aria-label="<?php echo esc_attr(get_bloginfo('name')); ?>"
-                >
+                <a href="<?php echo esc_url(
+                    tw_is_spanish()
+                    ? home_url('/es/')
+                    : home_url('/')
+                ); ?>" class="tw-footer__brand-link" aria-label="<?php echo esc_attr(get_bloginfo('name')); ?>">
 
                     <span class="tw-footer__brand-name">
                         Thomas Williams
@@ -73,9 +69,9 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                     wp_nav_menu(
                         [
                             'theme_location' => 'footer',
-                            'container'      => false,
-                            'menu_class'     => 'tw-footer__menu',
-                            'fallback_cb'    => false,
+                            'container' => false,
+                            'menu_class' => 'tw-footer__menu',
+                            'fallback_cb' => false,
                         ]
                     );
                     ?>
@@ -102,11 +98,7 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
 
                         <li>
 
-                            <a
-                                href="<?php echo esc_url($smartvault_url); ?>"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <a href="<?php echo esc_url($smartvault_url); ?>" target="_blank" rel="noopener noreferrer">
                                 SmartVault
 
                                 <span aria-hidden="true">
@@ -118,13 +110,11 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
 
                         <li>
 
-                            <a
-                                href="<?php echo esc_url(
-                                    tw_is_spanish()
-                                        ? home_url('/es/pagos/')
-                                        : home_url('/payments/')
-                                ); ?>"
-                            >
+                            <a href="<?php echo esc_url(
+                                tw_is_spanish()
+                                ? home_url('/es/pagos/')
+                                : home_url('/payments/')
+                            ); ?>">
                                 <?php
                                 tw_e(
                                     'Make a Payment',
@@ -159,9 +149,9 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                     wp_nav_menu(
                         [
                             'theme_location' => 'legal',
-                            'container'      => false,
-                            'menu_class'     => 'tw-footer__menu',
-                            'fallback_cb'    => false,
+                            'container' => false,
+                            'menu_class' => 'tw-footer__menu',
+                            'fallback_cb' => false,
                         ]
                     );
                     ?>
@@ -191,47 +181,32 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                     San Antonio, Texas
                 </span>
 
-                <div
-                    class="tw-footer__language"
-                    aria-label="<?php
-                    echo esc_attr(
-                        tw_text(
-                            'Language selector',
-                            'Selector de idioma'
-                        )
-                    );
-                    ?>"
-                >
+                <div class="tw-language-switch tw-language-switch--footer" aria-label="<?php
+                echo esc_attr(
+                    tw_text(
+                        'Language selector',
+                        'Selector de idioma'
+                    )
+                );
+                ?>">
 
-                    <a
-                        href="<?php echo esc_url(
-                            tw_get_language_url('en')
-                        ); ?>"
-                        class="<?php echo !tw_is_spanish()
-                            ? 'is-active'
-                            : ''; ?>"
-                        <?php echo !tw_is_spanish()
-                            ? 'aria-current="page"'
-                            : ''; ?>
-                    >
+                    <a href="<?php echo esc_url(
+                        tw_get_language_url('en')
+                    ); ?>" class="tw-language-switch__option <?php echo !tw_is_spanish()
+                         ? 'is-active'
+                         : ''; ?>" <?php echo !tw_is_spanish()
+                           ? 'aria-current="page"'
+                           : ''; ?>>
                         EN
                     </a>
 
-                    <span aria-hidden="true">
-                        /
-                    </span>
-
-                    <a
-                        href="<?php echo esc_url(
-                            tw_get_language_url('es')
-                        ); ?>"
-                        class="<?php echo tw_is_spanish()
-                            ? 'is-active'
-                            : ''; ?>"
-                        <?php echo tw_is_spanish()
-                            ? 'aria-current="page"'
-                            : ''; ?>
-                    >
+                    <a href="<?php echo esc_url(
+                        tw_get_language_url('es')
+                    ); ?>" class="tw-language-switch__option <?php echo tw_is_spanish()
+                         ? 'is-active'
+                         : ''; ?>" <?php echo tw_is_spanish()
+                           ? 'aria-current="page"'
+                           : ''; ?>>
                         ES
                     </a>
 

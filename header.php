@@ -11,6 +11,7 @@ if (!defined('ABSPATH')) {
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,17 +19,33 @@ if (!defined('ABSPATH')) {
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('tw-page-entering'); ?>>
 
-<?php wp_body_open(); ?>
+    <?php wp_body_open(); ?>
 
-<a class="skip-link screen-reader-text" href="#primary">
-    <?php esc_html_e('Skip to content', 'thomas-williams'); ?>
-</a>
+    <div class="tw-page-transition" aria-hidden="true">
+        <div class="tw-page-transition__content">
 
-<?php
-get_template_part(
-    'template-parts/header/site',
-    'header'
-);
-?>
+            <span class="tw-page-transition__brand">
+                Thomas Williams
+            </span>
+
+            <span class="tw-page-transition__subtitle">
+                CPA, PLLC
+            </span>
+
+            <span class="tw-page-transition__line"></span>
+
+        </div>
+    </div>
+
+    <a class="skip-link screen-reader-text" href="#primary">
+        <?php esc_html_e('Skip to content', 'thomas-williams'); ?>
+    </a>
+
+    <?php
+    get_template_part(
+        'template-parts/header/site',
+        'header'
+    );
+    ?>

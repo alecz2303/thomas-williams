@@ -40,6 +40,198 @@ document.addEventListener('DOMContentLoaded', () => {
 
     };
 
+    /*
+ * --------------------------------------------------------
+ * PAGE TRANSITIONS
+ * --------------------------------------------------------
+ */
+
+    const pageTransition =
+        document.querySelector(
+            '.tw-page-transition'
+        );
+
+    const shouldUseTransition = (link) => {
+
+        if (!pageTransition) {
+            return false;
+        }
+
+        const href =
+            link.getAttribute('href');
+
+        if (
+            !href ||
+            href.startsWith('#') ||
+            href.startsWith('mailto:') ||
+            href.startsWith('tel:')
+        ) {
+            return false;
+        }
+
+        if (
+            link.hasAttribute('download') ||
+            link.target === '_blank'
+        ) {
+            return false;
+        }
+
+        let url;
+
+        try {
+
+            url = new URL(
+                link.href,
+                window.location.href
+            );
+
+        } catch (error) {
+
+            return false;
+        }
+
+        /*
+         * External URL.
+         */
+        if (
+            url.origin !==
+            window.location.origin
+        ) {
+            return false;
+        }
+
+        /*
+         * Same page anchor.
+         */
+        if (
+            url.pathname ===
+            window.location.pathname &&
+            url.search ===
+            window.location.search &&
+            url.hash
+        ) {
+            return false;
+        }
+
+        return true;
+    };
+
+
+    const startPageTransition = (url) => {
+
+        document.body.classList.add(
+            'tw-page-leaving'
+        );
+
+        pageTransition.classList.add(
+            'is-active'
+        );
+
+        /*
+         * Give the transition enough time
+         * to become visible before navigating.
+         */
+        window.setTimeout(
+            () => {
+
+                window.location.href =
+                    url;
+
+            },
+            360
+        );
+
+    };
+
+
+    document.addEventListener(
+        'click',
+        (event) => {
+
+            const link =
+                event.target.closest('a');
+
+            if (!link) {
+                return;
+            }
+
+            /*
+             * Respect modifier keys.
+             */
+            if (
+                event.metaKey ||
+                event.ctrlKey ||
+                event.shiftKey ||
+                event.altKey
+            ) {
+                return;
+            }
+
+            if (
+                !shouldUseTransition(link)
+            ) {
+                return;
+            }
+
+            event.preventDefault();
+
+            /*
+             * Close mobile navigation if open.
+             */
+            if (
+                typeof closeMenu ===
+                'function' &&
+                navigation &&
+                navigation.classList.contains(
+                    'is-open'
+                )
+            ) {
+
+                closeMenu();
+
+            }
+
+            startPageTransition(
+                link.href
+            );
+
+        }
+    );
+
+
+    /*
+     * Back/forward cache protection.
+     *
+     * Prevent overlay from remaining visible
+     * when navigating back in the browser.
+     */
+    window.addEventListener(
+        'pageshow',
+        () => {
+
+            document.body.classList.remove(
+                'tw-page-leaving'
+            );
+
+            document.body.classList.remove(
+                'tw-page-entering'
+            );
+
+            document.body.classList.add(
+                'tw-page-ready'
+            );
+
+            if (pageTransition) {
+
+                pageTransition.classList.remove(
+                    'is-active'
+                );
+
+            }
+
+        }
+    );
+
     handleScroll();
 
     window.addEventListener(
@@ -225,5 +417,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
     );
+
+    /*
+ * --------------------------------------------------------
+ * PAGE ENTER ANIMATION
+ * --------------------------------------------------------
+ */
+
+    window.requestAnimationFrame(() => {
+
+        window.requestAnimationFrame(() => {
+
+            document.body.classList.remove(
+                'tw-page-entering'
+            );
+
+            document.body.classList.add(
+                'tw-page-ready'
+            );
+
+        });
+
+    });
 
 });

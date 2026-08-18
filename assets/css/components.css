@@ -198,32 +198,165 @@
 }
 
 
+
 /* ============================================================
-   LANGUAGE
+   LANGUAGE SWITCH
 ============================================================ */
 
-.tw-navigation__language {
-    display: flex;
+.tw-language-switch {
+    position: relative;
+
+    display: inline-flex;
     align-items: center;
 
-    gap: 6px;
+    gap: 2px;
+
+    padding: 3px;
+
+    border:
+        1px solid rgba(5, 112, 164, .18);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255, 255, 255, .92);
+
+    box-shadow:
+        0 5px 16px rgba(7, 61, 87, .045);
+}
+
+
+/* ============================================================
+   LANGUAGE SWITCH OPTIONS
+============================================================ */
+
+.tw-language-switch__option {
+    position: relative;
+
+    min-width: 38px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        7px 11px;
+
+    border-radius:
+        999px;
 
     color:
         var(--tw-text-muted);
 
-    font-size: 10px;
-    font-weight: 600;
-}
+    font-size: 9px;
+    font-weight: 700;
 
-.tw-navigation__language a {
+    line-height: 1;
+
+    letter-spacing:
+        .09em;
+
     transition:
-        color var(--tw-transition);
+        background var(--tw-transition),
+        color var(--tw-transition),
+        box-shadow var(--tw-transition),
+        transform var(--tw-transition);
 }
 
-.tw-navigation__language a:hover,
-.tw-navigation__language a.is-active {
+.tw-language-switch__option:hover {
     color:
         var(--tw-blue);
+}
+
+.tw-language-switch__option.is-active {
+    background:
+        var(--tw-blue);
+
+    color:
+        var(--tw-white);
+
+    box-shadow:
+        0 5px 14px rgba(5, 112, 164, .20);
+}
+
+
+/* ============================================================
+   LANGUAGE SWITCH — HEADER
+============================================================ */
+
+.tw-language-switch--header {
+    margin-right: 3px;
+}
+
+
+/* ============================================================
+   LANGUAGE SWITCH — MOBILE NAVIGATION
+============================================================ */
+
+.tw-navigation .tw-language-switch {
+    border-color:
+        rgba(255, 255, 255, .16);
+
+    background:
+        rgba(255, 255, 255, .07);
+
+    box-shadow: none;
+}
+
+.tw-navigation .tw-language-switch__option {
+    color:
+        rgba(255, 255, 255, .55);
+}
+
+.tw-navigation .tw-language-switch__option:hover {
+    color:
+        var(--tw-white);
+}
+
+.tw-navigation .tw-language-switch__option.is-active {
+    background:
+        var(--tw-white);
+
+    color:
+        var(--tw-blue-deep);
+
+    box-shadow: none;
+}
+
+
+/* ============================================================
+   LANGUAGE SWITCH — FOOTER
+============================================================ */
+
+.tw-footer .tw-language-switch {
+    border-color:
+        rgba(255, 255, 255, .14);
+
+    background:
+        rgba(255, 255, 255, .055);
+
+    box-shadow: none;
+}
+
+.tw-footer .tw-language-switch__option {
+    color:
+        rgba(255, 255, 255, .50);
+}
+
+.tw-footer .tw-language-switch__option:hover {
+    color:
+        var(--tw-white);
+}
+
+.tw-footer .tw-language-switch__option.is-active {
+    background:
+        var(--tw-white);
+
+    color:
+        var(--tw-blue-deep);
+
+    box-shadow: none;
 }
 
 
@@ -3344,10 +3477,6 @@ body.admin-bar .tw-header {
     gap: 20px;
 }
 
-.tw-footer__language {
-    color:
-        rgba(255, 255, 255, .58);
-}
 
 
 /* ============================================================
@@ -8338,83 +8467,264 @@ body.admin-bar .tw-header {
 }
 
 /* ============================================================
-   HEADER LANGUAGE SELECTOR
+   PAGE TRANSITION
 ============================================================ */
 
-.tw-header__language {
+.tw-page-transition {
+    position: fixed;
+    inset: 0;
+
+    z-index: 99999;
+
     display: flex;
     align-items: center;
+    justify-content: center;
 
-    gap: 6px;
+    background:
+        var(--tw-blue-deep);
 
-    margin-right: 4px;
+    opacity: 0;
+    visibility: hidden;
 
-    color:
-        var(--tw-text-muted);
+    pointer-events: none;
 
-    font-size: 10px;
-    font-weight: 600;
-
-    letter-spacing:
-        .08em;
-}
-
-.tw-header__language a {
-    color:
-        var(--tw-text-muted);
+    transform:
+        translateY(100%);
 
     transition:
-        color var(--tw-transition);
+        transform 420ms cubic-bezier(.22, 1, .36, 1),
+
+        opacity 220ms ease,
+
+        visibility 0s linear 420ms;
 }
 
-.tw-header__language a:hover {
+
+/* ------------------------------------------------------------
+   ACTIVE STATE
+------------------------------------------------------------ */
+
+.tw-page-transition.is-active {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+        translateY(0);
+
+    transition:
+        transform 420ms cubic-bezier(.22, 1, .36, 1),
+
+        opacity 180ms ease,
+
+        visibility 0s;
+}
+
+
+/* ------------------------------------------------------------
+   CONTENT
+------------------------------------------------------------ */
+
+.tw-page-transition__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width:
+        min(280px, 70vw);
+
     color:
-        var(--tw-blue);
+        var(--tw-white);
+
+    text-align: center;
 }
 
-.tw-header__language a.is-active {
+
+/* ------------------------------------------------------------
+   BRAND
+------------------------------------------------------------ */
+
+.tw-page-transition__brand {
+    font-size:
+        clamp(22px, 3vw, 30px);
+
+    font-weight: 600;
+
+    line-height: 1;
+
+    letter-spacing:
+        -.035em;
+}
+
+.tw-page-transition__subtitle {
+    margin-top: 8px;
+
     color:
-        var(--tw-blue);
+        rgba(255, 255, 255, .58);
+
+    font-size: 8px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing:
+        .22em;
 }
 
-.tw-header__language>span {
-    opacity: .45;
+
+/* ------------------------------------------------------------
+   LINE
+------------------------------------------------------------ */
+
+.tw-page-transition__line {
+    position: relative;
+
+    display: block;
+
+    width: 140px;
+    height: 1px;
+
+    margin-top: 28px;
+
+    overflow: hidden;
+
+    background:
+        rgba(255, 255, 255, .15);
+}
+
+.tw-page-transition__line::after {
+    content: "";
+
+    position: absolute;
+    inset:
+        0 auto 0 0;
+
+    width: 45%;
+    height: 100%;
+
+    background:
+        #83C7E2;
+
+    transform:
+        translateX(-120%);
+
+    animation:
+        tw-page-transition-line 1.1s ease-in-out infinite;
+}
+
+
+@keyframes tw-page-transition-line {
+
+    0% {
+        transform:
+            translateX(-120%);
+    }
+
+    55% {
+        transform:
+            translateX(135%);
+    }
+
+    100% {
+        transform:
+            translateX(250%);
+    }
+
+}
+
+
+/* ------------------------------------------------------------
+   PAGE LEAVING
+------------------------------------------------------------ */
+
+body.tw-page-leaving {
+    overflow: hidden;
+}
+
+
+/* ------------------------------------------------------------
+   REDUCED MOTION
+------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .tw-page-transition {
+        transform: none;
+
+        transition:
+            opacity 140ms ease,
+            visibility 0s linear 140ms;
+    }
+
+    .tw-page-transition.is-active {
+        transition:
+            opacity 140ms ease,
+            visibility 0s;
+    }
+
+    .tw-page-transition__line::after {
+        animation: none;
+
+        width: 100%;
+
+        transform: none;
+    }
+
 }
 
 /* ============================================================
-   FOOTER LANGUAGE SELECTOR
+   PAGE ENTER FADE
 ============================================================ */
 
-.tw-footer__language {
-    display: inline-flex;
-    align-items: center;
-
-    gap: 6px;
-
-    color:
-        rgba(255, 255, 255, .45);
-
-    font-size: 9px;
-    font-weight: 600;
-
-    letter-spacing:
-        .08em;
-}
-
-.tw-footer__language a {
-    color:
-        rgba(255, 255, 255, .45);
+body {
+    opacity: 1;
 
     transition:
-        color var(--tw-transition);
+        opacity 320ms ease;
 }
 
-.tw-footer__language a:hover,
-.tw-footer__language a.is-active {
-    color:
-        var(--tw-white);
+body.tw-page-entering {
+    opacity: 0;
 }
 
-.tw-footer__language>span {
-    opacity: .45;
+.site-main {
+    transition:
+        opacity 420ms ease,
+        transform 420ms cubic-bezier(.22, 1, .36, 1);
+}
+
+body.tw-page-entering .site-main {
+    opacity: 0;
+
+    transform:
+        translateY(10px);
+}
+
+body.tw-page-ready .site-main {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* ------------------------------------------------------------
+   REDUCED MOTION
+------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body,
+    .site-main {
+        transition: none;
+    }
+
+    body.tw-page-entering,
+    body.tw-page-entering .site-main {
+        opacity: 1;
+
+        transform: none;
+    }
+
 }
