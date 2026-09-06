@@ -3,50 +3,136 @@
    Global Design System
 ============================================================ */
 
+
+/* ============================================================
+   BRAND FONTS
+============================================================ */
+
+@font-face {
+    font-family: "Editors Note";
+    src: url("../fonts/EditorsNote-Regular.ttf")
+        format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Editors Note";
+    src: url("../fonts/EditorsNote-Medium.ttf")
+        format("truetype");
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Editors Note";
+    src: url("../fonts/EditorsNote-Semibold.ttf")
+        format("truetype");
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Editors Note";
+    src: url("../fonts/EditorsNote-Bold.ttf")
+        format("truetype");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+
+/* ============================================================
+   ROOT / DESIGN TOKENS
+============================================================ */
+
 :root {
 
     /* ========================================================
-       BRAND COLORS
+       OFFICIAL BRAND COLORS
     ======================================================== */
 
-    --tw-blue: #0570A4;
-    --tw-blue-dark: #04577F;
-    --tw-blue-deep: #073D57;
-    --tw-blue-light: #E8F4F9;
+    --tw-blue: #1A2948;
+    --tw-blue-dark: #131F37;
+    --tw-blue-deep: #0E1729;
+
+    --tw-taupe: #DED9CE;
+
+    --tw-blue-light: #B9D0D8;
+    --tw-blue-soft: #EAF1F3;
+
+    --tw-blue-muted: #516C7D;
+
+    --tw-gray: #747474;
 
     /* ========================================================
        NEUTRALS
     ======================================================== */
 
     --tw-white: #FFFFFF;
-    --tw-off-white: #FFFEF8;
-    --tw-surface: #F5F7F8;
+    --tw-off-white: #FAF9F6;
+    --tw-surface: #F4F2ED;
 
-    --tw-text: #18252C;
-    --tw-text-soft: #52616A;
-    --tw-text-muted: #74828A;
+    --tw-text: #1A2948;
+    --tw-text-soft: #51606B;
+    --tw-text-muted: #747474;
 
-    --tw-border: #DDE4E7;
+    --tw-border: #DED9CE;
+
+    /* ========================================================
+       TYPOGRAPHY
+    ======================================================== */
+
+    --tw-font-heading:
+        "Editors Note",
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    --tw-font-body:
+        "Inter",
+        "Avenir",
+        "Avenir Next",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
 
     /* ========================================================
        LEGACY ALIASES
-       Mantienen compatibilidad mientras terminamos
-       de migrar todos los componentes.
+       Mantienen compatibilidad con componentes existentes.
     ======================================================== */
 
-    --tw-color-bg: var(--tw-white);
-    --tw-color-surface: var(--tw-surface);
+    --tw-color-bg:
+        var(--tw-white);
 
-    --tw-color-dark: var(--tw-text);
-    --tw-color-dark-soft: #24343C;
+    --tw-color-surface:
+        var(--tw-surface);
 
-    --tw-color-text: var(--tw-text);
-    --tw-color-muted: var(--tw-text-muted);
+    --tw-color-dark:
+        var(--tw-blue);
 
-    --tw-color-accent: var(--tw-blue);
-    --tw-color-accent-light: #56A6C9;
+    --tw-color-dark-soft:
+        var(--tw-blue-muted);
 
-    --tw-color-border: var(--tw-border);
+    --tw-color-text:
+        var(--tw-text);
+
+    --tw-color-muted:
+        var(--tw-text-muted);
+
+    --tw-color-accent:
+        var(--tw-blue);
+
+    --tw-color-accent-light:
+        var(--tw-blue-light);
+
+    --tw-color-border:
+        var(--tw-border);
 
     /* ========================================================
        LAYOUT
@@ -81,10 +167,10 @@
     ======================================================== */
 
     --tw-shadow-soft:
-        0 18px 60px rgba(13, 45, 61, 0.08);
+        0 18px 60px rgba(26, 41, 72, .08);
 
     --tw-shadow-card:
-        0 10px 35px rgba(13, 45, 61, 0.07);
+        0 10px 35px rgba(26, 41, 72, .07);
 
     /* ========================================================
        TRANSITIONS
@@ -130,12 +216,7 @@ body {
         var(--tw-text);
 
     font-family:
-        "Inter",
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+        var(--tw-font-body);
 
     font-size: 16px;
     font-weight: 400;
@@ -167,16 +248,11 @@ h6 {
         var(--tw-text);
 
     font-family:
-        "Inter",
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+        var(--tw-font-heading);
 
     font-weight: 500;
 
-    letter-spacing: -0.035em;
+    letter-spacing: -0.025em;
 }
 
 h1 {
@@ -200,6 +276,26 @@ h3 {
     line-height: 1.1;
 }
 
+h4 {
+    font-size:
+        clamp(21px, 1.8vw, 28px);
+
+    line-height: 1.2;
+}
+
+h5 {
+    font-size:
+        clamp(18px, 1.4vw, 22px);
+
+    line-height: 1.3;
+}
+
+h6 {
+    font-size: 16px;
+
+    line-height: 1.4;
+}
+
 p {
     margin-top: 0;
 
@@ -218,6 +314,7 @@ strong {
 
 a {
     color: inherit;
+
     text-decoration: none;
 }
 
@@ -256,8 +353,10 @@ button {
 
 .tw-container {
     width:
-        min(calc(100% - 48px),
-            var(--tw-container));
+        min(
+            calc(100% - 48px),
+            var(--tw-container)
+        );
 
     margin-inline: auto;
 }
@@ -291,7 +390,10 @@ button {
     margin-bottom: 18px;
 
     color:
-        var(--tw-blue);
+        var(--tw-blue-muted);
+
+    font-family:
+        var(--tw-font-body);
 
     font-size: 12px;
     font-weight: 600;
@@ -309,7 +411,7 @@ button {
     height: 2px;
 
     background:
-        var(--tw-blue);
+        var(--tw-taupe);
 }
 
 
@@ -335,6 +437,9 @@ button {
     border-radius:
         var(--tw-radius-xs);
 
+    font-family:
+        var(--tw-font-body);
+
     font-size: 14px;
     font-weight: 600;
 
@@ -346,8 +451,14 @@ button {
         background var(--tw-transition),
         border-color var(--tw-transition),
         color var(--tw-transition),
-        transform var(--tw-transition);
+        transform var(--tw-transition),
+        box-shadow var(--tw-transition);
 }
+
+
+/* ============================================================
+   PRIMARY BUTTON
+============================================================ */
 
 .tw-button--primary {
     background:
@@ -361,9 +472,17 @@ button {
     background:
         var(--tw-blue-dark);
 
+    box-shadow:
+        0 8px 24px rgba(26, 41, 72, .14);
+
     transform:
         translateY(-2px);
 }
+
+
+/* ============================================================
+   OUTLINE BUTTON
+============================================================ */
 
 .tw-button--outline {
     border-color:
@@ -382,7 +501,15 @@ button {
 
     color:
         var(--tw-white);
+
+    transform:
+        translateY(-1px);
 }
+
+
+/* ============================================================
+   TEXT BUTTON
+============================================================ */
 
 .tw-button--text {
     min-height: auto;
@@ -391,13 +518,14 @@ button {
 
     border-radius: 0;
 
-    background: transparent;
+    background:
+        transparent;
 
     color:
         var(--tw-blue);
 
     border-bottom:
-        1px solid rgba(5, 112, 164, .35);
+        1px solid rgba(26, 41, 72, .30);
 }
 
 .tw-button--text:hover {
@@ -444,13 +572,73 @@ button {
 
 .tw-bg-blue-light {
     background:
-        var(--tw-blue-light);
+        var(--tw-blue-soft);
+}
+
+.tw-bg-taupe {
+    background:
+        var(--tw-taupe);
+}
+
+.tw-bg-blue-muted {
+    background:
+        var(--tw-blue-muted);
+
+    color:
+        var(--tw-white);
 }
 
 .tw-bg-deep {
     background:
-        var(--tw-blue-deep);
+        var(--tw-blue);
 
+    color:
+        var(--tw-white);
+}
+
+
+/* ============================================================
+   DARK BACKGROUND TYPOGRAPHY
+============================================================ */
+
+.tw-bg-deep h1,
+.tw-bg-deep h2,
+.tw-bg-deep h3,
+.tw-bg-deep h4,
+.tw-bg-deep h5,
+.tw-bg-deep h6,
+.tw-bg-blue-muted h1,
+.tw-bg-blue-muted h2,
+.tw-bg-blue-muted h3,
+.tw-bg-blue-muted h4,
+.tw-bg-blue-muted h5,
+.tw-bg-blue-muted h6 {
+    color:
+        var(--tw-white);
+}
+
+.tw-bg-deep p,
+.tw-bg-blue-muted p {
+    color:
+        rgba(255, 255, 255, .78);
+}
+
+
+/* ============================================================
+   TEXT COLORS
+============================================================ */
+
+.tw-text-blue {
+    color:
+        var(--tw-blue);
+}
+
+.tw-text-muted {
+    color:
+        var(--tw-text-muted);
+}
+
+.tw-text-white {
     color:
         var(--tw-white);
 }
@@ -512,8 +700,9 @@ button {
 
     .tw-container {
         width:
-            min(calc(100% - 32px),
-                var(--tw-container));
+            min(
+                calc(100% - 32px),
+                var(--tw-container)
+            );
     }
-
 }
