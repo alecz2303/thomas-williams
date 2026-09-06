@@ -1,0 +1,10 @@
+/*
+ * Production-safe typography fallback.
+ *
+ * The licensed Editor's Note source files are intentionally not committed to
+ * this public repository. Keep headings on a stable serif fallback so public
+ * deployments do not depend on missing local font binaries.
+ */
+:root {
+    --tw-font-heading: Georgia, "Times New Roman", serif;
+}
