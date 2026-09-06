@@ -13,32 +13,46 @@ The repository default branch is `main`. Work is tracked in Jira under project k
 - TW-4 — Services and Insights institutional refinement.
 - TW-5 — Contact and Payments institutional refinement.
 - TW-6 — Home International section styling restoration.
+- TW-8 — SEO, bilingual, legal and site-wide QA hardening.
 
-### TW-8 — SEO, bilingual, legal and site-wide QA hardening
+### TW-9 — Final production readiness and deployment QA
 
-TW-8 prepares the public theme for final production QA by hardening:
+TW-9 is the final production-readiness pass. It verifies deployment assumptions, active EN/ES routes, integrations, institutional data and operational dependencies before release.
 
-- English/Spanish SEO metadata, canonicals, Open Graph locale and hreflang output.
-- Bilingual Privacy and Terms presentation without changing the underlying legal intent.
-- Bilingual 404 and empty-content states.
-- Functional posts-index, search and archive fallbacks.
-- Current institutional schema/address/telephone data.
-- Safe public-repository typography fallback when licensed local webfont files are unavailable.
+## Institutional fonts
+
+Editor's Note is part of the official institutional identity supplied for this project and remains the heading typeface used by the theme. `assets/css/base.css` loads the following required deployment assets from `assets/fonts/`:
+
+- `EditorsNote-Regular.ttf`
+- `EditorsNote-Medium.ttf`
+- `EditorsNote-Semibold.ttf`
+- `EditorsNote-Bold.ttf`
+
+The font binaries are intentionally not stored in this public repository. A production deployment must include those supplied files in `assets/fonts/` so the existing `@font-face` declarations resolve correctly. Do not replace the institutional typeface with the former `production-safe.css` override.
 
 ## Local-only assets
 
-The following items are intentionally not versioned unless separately approved:
+The following items remain intentionally unversioned:
 
-- `assets/fonts/` — local institutional font files pending confirmation of webfont licensing.
+- `assets/fonts/` — required institutional font binaries supplied separately for deployment.
 - `download-flags.ps1` — temporary local installer/helper.
 - `thomas-williams-flags-installer/` — temporary local installer artifacts.
-
-The public repository does **not** require the local font binaries to render correctly. `assets/css/production-safe.css` overrides the heading stack with a stable serif fallback. If licensed webfont deployment is later approved, that override can be replaced with the licensed production configuration without committing unverified font files.
 
 ## Development
 
 Local WordPress development currently uses `thomaswilliams.test`. Mailpit SMTP configuration is enabled only for that local host.
 
-## Deployment notes
+## Production deployment checklist
 
-Before production deployment, verify WordPress admin email, production mail delivery, contact-form submission, bilingual routes, SmartVault access, current payment guidance, map destination, responsive navigation, legal pages, search/archive fallbacks, social metadata and page transitions.
+Before production release, verify all of the following:
+
+- Copy the four required Editor's Note font files into `assets/fonts/` and confirm they return HTTP 200 from the deployed theme.
+- Confirm the official office address is `248 E. Summit Ave., San Antonio, Texas 78212` and telephone is `210.342.9999` wherever institutional data is rendered.
+- Verify English and Spanish routes for Home, About, Services, Insights, Contact, Payments, Privacy and Terms.
+- Verify 404, search, archive and single-post states.
+- Verify production mail delivery and a real contact-form submission, including the international phone-country selector.
+- Verify SmartVault access, office map destination and current payment guidance.
+- Verify responsive navigation, page transitions, legal pages, SEO canonicals/hreflang, Open Graph metadata and schema output.
+- Verify WordPress admin email and any analytics configuration intended for production.
+
+The repository does not include environment-specific mail credentials, private configuration or institutional font binaries; those operational dependencies must be supplied in the target WordPress deployment.

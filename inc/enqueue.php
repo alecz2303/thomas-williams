@@ -28,16 +28,9 @@ function tw_enqueue_assets() {
     );
 
     wp_enqueue_style(
-        'tw-production-safe',
-        TW_THEME_URI . '/assets/css/production-safe.css',
-        ['tw-base'],
-        tw_asset_version('/assets/css/production-safe.css')
-    );
-
-    wp_enqueue_style(
         'tw-layout',
         TW_THEME_URI . '/assets/css/layout.css',
-        ['tw-production-safe'],
+        ['tw-base'],
         tw_asset_version('/assets/css/layout.css')
     );
 
