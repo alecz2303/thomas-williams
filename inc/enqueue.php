@@ -9,14 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-/**
- * Obtiene una versión basada en la fecha de modificación
- * durante el desarrollo.
- *
- * Esto evita problemas de caché.
- */
 function tw_asset_version($relative_path) {
-
     $file = TW_THEME_DIR . $relative_path;
 
     if (file_exists($file)) {
@@ -26,17 +19,7 @@ function tw_asset_version($relative_path) {
     return TW_THEME_VERSION;
 }
 
-/**
- * Cargar assets públicos.
- */
 function tw_enqueue_assets() {
-
-    /*
-     * ========================================================
-     * CSS
-     * ========================================================
-     */
-
     wp_enqueue_style(
         'tw-base',
         TW_THEME_URI . '/assets/css/base.css',
@@ -45,9 +28,16 @@ function tw_enqueue_assets() {
     );
 
     wp_enqueue_style(
+        'tw-production-safe',
+        TW_THEME_URI . '/assets/css/production-safe.css',
+        ['tw-base'],
+        tw_asset_version('/assets/css/production-safe.css')
+    );
+
+    wp_enqueue_style(
         'tw-layout',
         TW_THEME_URI . '/assets/css/layout.css',
-        ['tw-base'],
+        ['tw-production-safe'],
         tw_asset_version('/assets/css/layout.css')
     );
 
@@ -78,12 +68,6 @@ function tw_enqueue_assets() {
         ['tw-responsive'],
         tw_asset_version('/assets/css/home-international.css')
     );
-
-    /*
-     * ========================================================
-     * JAVASCRIPT
-     * ========================================================
-     */
 
     wp_enqueue_script(
         'tw-navigation',
@@ -120,28 +104,21 @@ function tw_enqueue_assets() {
         true
     );
 
-    /**
-     * Variables disponibles para JavaScript.
-     */
     wp_localize_script(
         'tw-main',
         'twTheme',
         [
-            'ajaxUrl' => admin_url('admin-ajax.php'),
-            'homeUrl' => home_url('/'),
+            'ajaxUrl'  => admin_url('admin-ajax.php'),
+            'homeUrl'  => home_url('/'),
             'themeUrl' => TW_THEME_URI,
-            'language' => get_locale(),
+            'language' => tw_current_language(),
         ]
     );
 }
 
 add_action('wp_enqueue_scripts', 'tw_enqueue_assets');
 
-/**
- * Cargar estilos exclusivos del administrador.
- */
 function tw_enqueue_admin_assets() {
-
     $admin_css = TW_THEME_DIR . '/assets/css/admin.css';
 
     if (!file_exists($admin_css)) {

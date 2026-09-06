@@ -11,16 +11,10 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-/**
- * Constantes del tema.
- */
 define('TW_THEME_VERSION', '1.0.0');
 define('TW_THEME_DIR', get_template_directory());
 define('TW_THEME_URI', get_template_directory_uri());
 
-/**
- * Archivos principales.
- */
 $tw_theme_files = [
     '/inc/setup.php',
     '/inc/theme-support.php',
@@ -41,6 +35,7 @@ $tw_theme_files = [
     '/inc/ajax.php',
     '/inc/contact-form.php',
     '/inc/bilingual.php',
+    '/inc/site-hardening.php',
 
     // Integraciones.
     '/inc/integrations/smartvault.php',
