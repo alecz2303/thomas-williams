@@ -21,10 +21,10 @@ function tw_get_office_location()
         'name' => 'Thomas Williams, CPA, PLLC',
 
         'address_line_1' =>
-            '901 NE Loop 410, Suite 508',
+            '248 E. Summit Avenue',
 
         'address_line_2' =>
-            'Alamo Towers West',
+            '',
 
         'city' =>
             'San Antonio',
@@ -33,7 +33,7 @@ function tw_get_office_location()
             'TX',
 
         'postal_code' =>
-            '78209-1306',
+            '78212',
 
         'country' =>
             'US',
@@ -51,13 +51,23 @@ function tw_get_office_address()
     $location =
         tw_get_office_location();
 
-    return sprintf(
-        '%s, %s, %s, %s %s',
+    $parts = [
         $location['address_line_1'],
         $location['address_line_2'],
         $location['city'],
-        $location['state'],
-        $location['postal_code']
+        $location['state'] . ' ' . $location['postal_code'],
+    ];
+
+    /*
+     * Remove empty address components.
+     */
+    $parts = array_filter(
+        $parts
+    );
+
+    return implode(
+        ', ',
+        $parts
     );
 }
 
@@ -84,8 +94,6 @@ function tw_get_google_maps_url()
 
 /**
  * Return Google Maps embed URL.
- *
- * This uses the standard maps query embed format.
  *
  * @return string
  */

@@ -9,7 +9,17 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.aspx?ReturnUrl=%2fusers%2fsecure%2fHome.aspx';
+$smartvault_url =
+    'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.aspx?ReturnUrl=%2fusers%2fsecure%2fHome.aspx';
+
+$home_url =
+    tw_is_spanish()
+        ? home_url('/es/')
+        : home_url('/');
+
+$logo_url =
+    TW_THEME_URI
+    . '/assets/images/branding/tw-logo-white.png';
 ?>
 
 <footer class="tw-footer">
@@ -20,19 +30,23 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
 
             <div class="tw-footer__brand">
 
-                <a href="<?php echo esc_url(
-                    tw_is_spanish()
-                    ? home_url('/es/')
-                    : home_url('/')
-                ); ?>" class="tw-footer__brand-link" aria-label="<?php echo esc_attr(get_bloginfo('name')); ?>">
+                <a
+                    href="<?php echo esc_url($home_url); ?>"
+                    class="tw-footer__brand-link"
+                    aria-label="<?php echo esc_attr(
+                        get_bloginfo('name')
+                    ); ?>"
+                >
 
-                    <span class="tw-footer__brand-name">
-                        Thomas Williams
-                    </span>
-
-                    <span class="tw-footer__brand-subtitle">
-                        CPA, PLLC
-                    </span>
+                    <img
+                        src="<?php echo esc_url($logo_url); ?>"
+                        alt="<?php echo esc_attr(
+                            get_bloginfo('name')
+                        ); ?>"
+                        class="tw-footer__logo"
+                        width="220"
+                        height="215"
+                    >
 
                 </a>
 
@@ -49,6 +63,7 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
 
 
             <div class="tw-footer__nav">
+
 
                 <!-- =================================================
                      NAVIGATION
@@ -69,9 +84,9 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                     wp_nav_menu(
                         [
                             'theme_location' => 'footer',
-                            'container' => false,
-                            'menu_class' => 'tw-footer__menu',
-                            'fallback_cb' => false,
+                            'container'      => false,
+                            'menu_class'     => 'tw-footer__menu',
+                            'fallback_cb'    => false,
                         ]
                     );
                     ?>
@@ -98,7 +113,13 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
 
                         <li>
 
-                            <a href="<?php echo esc_url($smartvault_url); ?>" target="_blank" rel="noopener noreferrer">
+                            <a
+                                href="<?php echo esc_url(
+                                    $smartvault_url
+                                ); ?>"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 SmartVault
 
                                 <span aria-hidden="true">
@@ -110,11 +131,15 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
 
                         <li>
 
-                            <a href="<?php echo esc_url(
-                                tw_is_spanish()
-                                ? home_url('/es/pagos/')
-                                : home_url('/payments/')
-                            ); ?>">
+                            <a
+                                href="<?php
+                                echo esc_url(
+                                    tw_is_spanish()
+                                        ? home_url('/es/pagos/')
+                                        : home_url('/payments/')
+                                );
+                                ?>"
+                            >
                                 <?php
                                 tw_e(
                                     'Make a Payment',
@@ -149,9 +174,9 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                     wp_nav_menu(
                         [
                             'theme_location' => 'legal',
-                            'container' => false,
-                            'menu_class' => 'tw-footer__menu',
-                            'fallback_cb' => false,
+                            'container'      => false,
+                            'menu_class'     => 'tw-footer__menu',
+                            'fallback_cb'    => false,
                         ]
                     );
                     ?>
@@ -175,38 +200,59 @@ $smartvault_url = 'https://thomaswilliamscpapllc.smartvault.com/secure/SignIn.as
                 Thomas Williams, CPA, PLLC
             </p>
 
+
             <div class="tw-footer__bottom-links">
 
                 <span>
                     San Antonio, Texas
                 </span>
 
-                <div class="tw-language-switch tw-language-switch--footer" aria-label="<?php
-                echo esc_attr(
-                    tw_text(
-                        'Language selector',
-                        'Selector de idioma'
-                    )
-                );
-                ?>">
 
-                    <a href="<?php echo esc_url(
-                        tw_get_language_url('en')
-                    ); ?>" class="tw-language-switch__option <?php echo !tw_is_spanish()
-                         ? 'is-active'
-                         : ''; ?>" <?php echo !tw_is_spanish()
-                           ? 'aria-current="page"'
-                           : ''; ?>>
+                <div
+                    class="tw-language-switch tw-language-switch--footer"
+                    aria-label="<?php
+                    echo esc_attr(
+                        tw_text(
+                            'Language selector',
+                            'Selector de idioma'
+                        )
+                    );
+                    ?>"
+                >
+
+                    <a
+                        href="<?php echo esc_url(
+                            tw_get_language_url('en')
+                        ); ?>"
+                        class="tw-language-switch__option <?php
+                        echo !tw_is_spanish()
+                            ? 'is-active'
+                            : '';
+                        ?>"
+                        <?php
+                        echo !tw_is_spanish()
+                            ? 'aria-current="page"'
+                            : '';
+                        ?>
+                    >
                         EN
                     </a>
 
-                    <a href="<?php echo esc_url(
-                        tw_get_language_url('es')
-                    ); ?>" class="tw-language-switch__option <?php echo tw_is_spanish()
-                         ? 'is-active'
-                         : ''; ?>" <?php echo tw_is_spanish()
-                           ? 'aria-current="page"'
-                           : ''; ?>>
+                    <a
+                        href="<?php echo esc_url(
+                            tw_get_language_url('es')
+                        ); ?>"
+                        class="tw-language-switch__option <?php
+                        echo tw_is_spanish()
+                            ? 'is-active'
+                            : '';
+                        ?>"
+                        <?php
+                        echo tw_is_spanish()
+                            ? 'aria-current="page"'
+                            : '';
+                        ?>
+                    >
                         ES
                     </a>
 

@@ -33,6 +33,11 @@ $tw_theme_files = [
     '/inc/security.php',
     '/inc/seo.php',
     '/inc/admin.php',
+
+    // Datos reutilizables.
+    '/inc/data/country-calling-codes.php',
+
+    // Procesamiento.
     '/inc/ajax.php',
     '/inc/contact-form.php',
     '/inc/bilingual.php',

@@ -36,3 +36,10 @@ vendor/
 *.zip
 *.rar
 *.7z
+
+# Project-local assets / helpers
+# Institutional font binaries stay local until webfont licensing is confirmed.
+assets/fonts/
+# Temporary flag download/installation helpers.
+download-flags.ps1
+thomas-williams-flags-installer/

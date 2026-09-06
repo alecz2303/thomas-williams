@@ -527,14 +527,20 @@ function tw_output_schema()
             '@type' =>
                 'PostalAddress',
 
+            'streetAddress' =>
+                tw_get_office_location()['address_line_1'],
+
             'addressLocality' =>
-                'San Antonio',
+                tw_get_office_location()['city'],
 
             'addressRegion' =>
-                'TX',
+                tw_get_office_location()['state'],
+
+            'postalCode' =>
+                tw_get_office_location()['postal_code'],
 
             'addressCountry' =>
-                'US',
+                tw_get_office_location()['country'],
         ],
     ];
 
