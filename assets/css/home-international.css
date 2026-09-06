@@ -1,0 +1,200 @@
+/* ============================================================
+   HOME — INTERNATIONAL PERSPECTIVE
+   Isolated restoration for the Home international section.
+============================================================ */
+
+.tw-international {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(110px, 12vw, 190px) 0;
+    background: var(--tw-color-dark);
+    color: #fff;
+}
+
+.tw-international__inner {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr) minmax(300px, .65fr);
+    gap: clamp(45px, 7vw, 105px);
+    align-items: center;
+}
+
+.tw-international__meta {
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 8px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .4);
+}
+
+.tw-international__meta span:first-child {
+    color: var(--tw-color-accent-light);
+}
+
+.tw-international__eyebrow {
+    margin: 0 0 28px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: var(--tw-color-accent-light);
+}
+
+.tw-international__title {
+    max-width: 800px;
+    margin: 0;
+    font-family: var(--tw-font-heading, Georgia, "Times New Roman", serif);
+    font-size: clamp(51px, 6vw, 100px);
+    font-weight: 400;
+    line-height: .92;
+    letter-spacing: -.05em;
+}
+
+.tw-international__title span {
+    display: block;
+    color: var(--tw-color-accent-light);
+    font-style: italic;
+}
+
+.tw-international__body {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    gap: clamp(30px, 5vw, 70px);
+    max-width: 760px;
+    margin-top: 55px;
+}
+
+.tw-international__body p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, .62);
+}
+
+.tw-international__lead {
+    font-family: var(--tw-font-heading, Georgia, "Times New Roman", serif);
+    font-size: clamp(21px, 2vw, 28px) !important;
+    line-height: 1.4 !important;
+    color: rgba(255, 255, 255, .92) !important;
+}
+
+.tw-international__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 50px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(255, 255, 255, .4);
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    transition: gap var(--tw-transition), color var(--tw-transition);
+}
+
+.tw-international__link span {
+    color: var(--tw-color-accent-light);
+}
+
+.tw-international__link:hover,
+.tw-international__link:focus-visible {
+    gap: 26px;
+    color: var(--tw-color-accent-light);
+}
+
+.tw-international__visual {
+    display: flex;
+    justify-content: center;
+}
+
+.tw-international__globe {
+    position: relative;
+    width: min(30vw, 390px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 50%;
+}
+
+.tw-international__globe::before,
+.tw-international__globe::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: rgba(255, 255, 255, .1);
+}
+
+.tw-international__globe::after {
+    transform: rotate(90deg);
+}
+
+.tw-international__orbit {
+    position: absolute;
+    inset: 13% -7%;
+    border: 1px solid rgba(185, 208, 216, .45);
+    border-radius: 50%;
+    transform: rotate(32deg);
+    animation: twInternationalOrbit 18s linear infinite;
+}
+
+.tw-international__orbit--two {
+    transform: rotate(-32deg);
+    animation-direction: reverse;
+}
+
+.tw-international__globe span,
+.tw-international__globe strong {
+    position: absolute;
+    font-family: var(--tw-font-heading, Georgia, serif);
+    font-weight: 400;
+    font-size: 26px;
+}
+
+.tw-international__globe span {
+    left: 20%;
+    top: 37%;
+}
+
+.tw-international__globe strong {
+    right: 17%;
+    bottom: 30%;
+    color: var(--tw-color-accent-light);
+}
+
+.tw-international__globe i {
+    position: absolute;
+    left: 49%;
+    top: 49%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--tw-color-accent);
+}
+
+@keyframes twInternationalOrbit {
+    from { transform: rotate(32deg) rotateZ(0deg); }
+    to { transform: rotate(32deg) rotateZ(360deg); }
+}
+
+@media (max-width: 950px) {
+    .tw-international__inner { grid-template-columns: 1fr; }
+    .tw-international__meta { flex-direction: row; }
+    .tw-international__visual { margin-top: 40px; }
+    .tw-international__globe { width: min(70vw, 380px); }
+}
+
+@media (max-width: 650px) {
+    .tw-international { padding: 90px 0; }
+    .tw-international__title { font-size: clamp(46px, 13vw, 68px); }
+    .tw-international__body { grid-template-columns: 1fr; gap: 25px; margin-top: 40px; }
+    .tw-international__link { margin-top: 38px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tw-international__orbit { animation: none; }
+}
