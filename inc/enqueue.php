@@ -72,6 +72,13 @@ function tw_enqueue_assets() {
         tw_asset_version('/assets/css/responsive.css')
     );
 
+    wp_enqueue_style(
+        'tw-home-international',
+        TW_THEME_URI . '/assets/css/home-international.css',
+        ['tw-responsive'],
+        tw_asset_version('/assets/css/home-international.css')
+    );
+
     /*
      * ========================================================
      * JAVASCRIPT
