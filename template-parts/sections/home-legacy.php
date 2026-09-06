@@ -63,8 +63,8 @@ $principles = [
                     class="tw-legacy__title"
                     data-reveal
                 >
-                    Established in
-                    <span>1990.</span>
+                    More than
+                    <span>three decades.</span>
                 </h2>
 
             </div>
@@ -80,7 +80,7 @@ $principles = [
                     data-legacy-year
                     aria-hidden="true"
                 >
-                    1990
+                    30+
                 </div>
 
                 <div class="tw-legacy__year-caption">

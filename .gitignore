@@ -38,7 +38,7 @@ vendor/
 *.7z
 
 # Project-local assets / helpers
-# Institutional font binaries stay local until webfont licensing is confirmed.
+# Institutional font binaries are supplied separately and are required in deployment.
 assets/fonts/
 # Temporary flag download/installation helpers.
 download-flags.ps1
