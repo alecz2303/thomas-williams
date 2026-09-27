@@ -26,17 +26,17 @@ function tw_register_menus() {
 add_action('after_setup_theme', 'tw_register_menus');
 
 /**
- * Keep the client-requested Real Estate destination in the primary/footer
- * navigation even before the WordPress menus are manually updated.
+ * Insert Real Estate immediately before Contact without requiring a manual
+ * WordPress menu update.
  */
 function tw_add_real_estate_menu_item($items, $args) {
     if (empty($args->theme_location) || !in_array($args->theme_location, ['primary', 'footer'], true)) {
         return $items;
     }
 
-    foreach ($items as $item) {
-        $path = wp_parse_url($item->url, PHP_URL_PATH);
-        if ($path && trim($path, '/') === 'real-estate') {
+    foreach ($items as $existing) {
+        $path = wp_parse_url($existing->url, PHP_URL_PATH);
+        if ($path && in_array(trim($path, '/'), ['real-estate', 'es/bienes-raices'], true)) {
             return $items;
         }
     }
@@ -56,7 +56,10 @@ function tw_add_real_estate_menu_item($items, $args) {
     $item->description = '';
     $item->classes = ['menu-item', 'menu-item-real-estate'];
     $item->xfn = '';
-    $item->status = '';
+    $item->status = 'publish';
+    $item->current = false;
+    $item->current_item_ancestor = false;
+    $item->current_item_parent = false;
 
     $position = count($items);
     foreach ($items as $index => $existing) {
@@ -67,6 +70,7 @@ function tw_add_real_estate_menu_item($items, $args) {
             break;
         }
     }
+
     array_splice($items, $position, 0, [$item]);
     return $items;
 }
