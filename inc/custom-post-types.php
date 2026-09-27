@@ -28,3 +28,17 @@ function tw_register_property_post_type() {
     ]);
 }
 add_action('init', 'tw_register_property_post_type');
+
+
+/**
+ * Refresh rewrite rules once for the TW-10 property routes.
+ */
+function tw_maybe_flush_property_rewrites() {
+    $rewrite_version = 'tw-10-properties-v1';
+    if (get_option('tw_rewrite_version') === $rewrite_version) {
+        return;
+    }
+    flush_rewrite_rules(false);
+    update_option('tw_rewrite_version', $rewrite_version, false);
+}
+add_action('init', 'tw_maybe_flush_property_rewrites', 99);
