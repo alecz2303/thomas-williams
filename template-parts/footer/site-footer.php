@@ -59,6 +59,11 @@ $logo_url =
                     ?>
                 </p>
 
+                <div class="tw-footer__social" aria-label="<?php echo esc_attr(tw_text('Social media', 'Redes sociales')); ?>">
+                    <a href="https://www.facebook.com/share/1EzyWUrKjV/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook ↗</a>
+                    <a href="https://www.linkedin.com/company/thomas-williams-cpa-pllc/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                </div>
+
             </div>
 
 
