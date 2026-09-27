@@ -26,3 +26,9 @@
 .tw-whatsapp-float__icon{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#fff;color:#1a2948;font-size:10px}
 .tw-whatsapp-float:hover{transform:translateY(-2px)}
 @media(max-width:640px){.tw-whatsapp-float{right:16px;bottom:16px;padding:9px}.tw-whatsapp-float__label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}}
+
+.tw-team{padding:96px 0;background:#f7f5f1}.tw-team__header{max-width:760px;margin-bottom:48px}.tw-team__header>span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#516c7d}.tw-team__header h2{margin:14px 0 0;font-family:var(--tw-font-heading);font-size:clamp(38px,5vw,58px);color:#1a2948}
+.tw-team__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}.tw-team__photo{display:grid;place-items:center;aspect-ratio:4/5;overflow:hidden;background:#ded9ce}.tw-team__photo img{width:100%;height:100%;object-fit:cover}.tw-team__photo span{font-family:var(--tw-font-heading);font-size:72px;color:#1a2948}
+.tw-team__member h3{margin:20px 0 6px;font-family:var(--tw-font-heading);font-size:28px;color:#1a2948}.tw-team__member p{margin:0;color:#747474;line-height:1.5}
+.tw-footer__social{display:flex;flex-wrap:wrap;gap:16px;margin-top:22px}.tw-footer__social a{color:inherit;text-decoration:none;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+@media(max-width:760px){.tw-team{padding:68px 0}.tw-team__grid{grid-template-columns:1fr}.tw-team__member{max-width:520px}}
