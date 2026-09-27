@@ -31,6 +31,10 @@ $payments_url = tw_is_spanish() ? home_url('/es/pagos/') : home_url('/payments/'
                         'Thomas Williams, CPA, PLLC provides accounting, tax and advisory services from San Antonio.',
                         'Thomas Williams, CPA, PLLC brinda servicios contables, fiscales y de asesoría desde San Antonio.'
                     ); ?></p>
+                    <p><strong><?php tw_e('Office', 'Oficina'); ?>:</strong> <a href="tel:+12103429999">+1 (210) 342-9999</a><br>
+                    <strong>Fax:</strong> +1 (210) 349-1080</p>
+                    <p><a href="mailto:abraham@tomwilliamscpa.com">abraham@tomwilliamscpa.com</a><br>
+                    <a href="mailto:accounting@tomwilliamscpa.com">accounting@tomwilliamscpa.com</a></p>
                 </div>
             </div>
             <a href="<?php echo esc_url($smartvault_url); ?>" class="tw-contact-details__card tw-contact-details__card--link" target="_blank" rel="noopener noreferrer" data-reveal>
