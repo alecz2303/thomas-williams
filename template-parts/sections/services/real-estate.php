@@ -15,6 +15,7 @@ $capabilities = [
     tw_text('Tax Considerations', 'Consideraciones Fiscales'),
     tw_text('Ownership Structure', 'Estructura de Propiedad'),
     tw_text('Strategic Advisory', 'Asesoría Estratégica'),
+    tw_text('Real Estate Consulting', 'Asesoría de Bienes Raíces'),
 ];
 ?>
 <section class="tw-service-detail tw-service-detail--real-estate" id="real-estate-investment-consultancy">
