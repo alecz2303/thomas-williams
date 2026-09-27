@@ -1,0 +1,21 @@
+.tw-real-estate__hero,.tw-property-single__hero{padding:calc(var(--tw-header-height) + 80px) 0 80px;background:#1a2948;color:#fff}
+.tw-real-estate__eyebrow,.tw-property-single__status{display:block;margin-bottom:18px;text-transform:uppercase;letter-spacing:.16em;font-size:11px}
+.tw-real-estate__hero h1,.tw-property-single__hero h1{margin:0;font-family:var(--tw-font-heading);font-size:clamp(48px,7vw,88px);line-height:1}
+.tw-real-estate__listings,.tw-property-single__content{padding:88px 0}
+.tw-property-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.tw-property-card{background:#fff;border:1px solid rgba(26,41,72,.12)}
+.tw-property-card__media{display:block;aspect-ratio:4/3;overflow:hidden;background:#ded9ce}
+.tw-property-card__media img,.tw-property-single__image img{width:100%;height:100%;object-fit:cover}
+.tw-property-card__placeholder{display:grid;width:100%;height:100%;place-items:center;font-family:var(--tw-font-heading);font-size:48px;color:#1a2948}
+.tw-property-card__body{padding:28px}.tw-property-card h2{font-family:var(--tw-font-heading);font-size:30px}
+.tw-property-card h2 a,.tw-property-card__link{color:#1a2948;text-decoration:none}
+.tw-property-card__status{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#516c7d}
+.tw-property-empty{max-width:760px;padding:48px;background:#f7f5f1;border-left:3px solid #1a2948}
+.tw-property-single__back{display:inline-block;margin-bottom:28px;color:#fff;text-decoration:none}
+.tw-property-single__price{display:block;margin-top:18px;font-size:24px}
+.tw-property-single__image{max-height:720px;overflow:hidden}.tw-property-single__image img{max-height:720px}
+.tw-property-single__grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.6fr);gap:72px}
+.tw-property-single__facts{padding:32px;background:#f7f5f1}.tw-property-single__facts p{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid rgba(26,41,72,.12)}
+.tw-property-single__contact{display:flex;justify-content:space-between;margin-top:28px;padding:16px 18px;background:#1a2948;color:#fff;text-decoration:none}
+@media(max-width:900px){.tw-property-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.tw-property-single__grid{grid-template-columns:1fr}}
+@media(max-width:640px){.tw-property-grid{grid-template-columns:1fr}.tw-real-estate__listings,.tw-property-single__content{padding:64px 0}.tw-property-empty{padding:30px 22px}}
