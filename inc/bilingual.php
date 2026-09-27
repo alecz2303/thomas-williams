@@ -116,14 +116,25 @@ function tw_register_bilingual_rewrites()
         'top'
     );
 
-
     /*
      * Spanish Real Estate archive and property detail.
      */
     add_rewrite_rule(
-        '^es/bienes-raices/?
-    foreach (tw_get_bilingual_routes() as $route) {
+        '^es/bienes-raices/?$',
+        'index.php?post_type=tw_property&tw_lang=es',
+        'top'
+    );
 
+    add_rewrite_rule(
+        '^es/bienes-raices/([^/]+)/?$',
+        'index.php?tw_property=$matches[1]&tw_lang=es',
+        'top'
+    );
+
+    /*
+     * Spanish pages.
+     */
+    foreach (tw_get_bilingual_routes() as $route) {
         add_rewrite_rule(
             '^es/' . preg_quote($route['es'], '/') . '/?$',
             'index.php?pagename='
