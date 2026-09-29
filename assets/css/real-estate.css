@@ -42,3 +42,8 @@
 .tw-social-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#1a2948;color:#fff;transition:transform .2s ease,background-color .2s ease}
 .tw-social-icon svg{width:18px;height:18px}
 .tw-contact-details__social a:hover .tw-social-icon{transform:translateY(-2px);background:#516c7d}
+
+.tw-footer__social a{display:inline-flex;align-items:center;gap:8px}
+.tw-footer__social .tw-social-icon{width:30px;height:30px;background:#fff;color:#1a2948}
+.tw-footer__social .tw-social-icon svg{width:16px;height:16px}
+.tw-footer__social a:hover .tw-social-icon{transform:translateY(-2px);background:#b9d0d8}
