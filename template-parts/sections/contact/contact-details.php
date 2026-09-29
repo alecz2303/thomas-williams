@@ -35,6 +35,10 @@ $payments_url = tw_is_spanish() ? home_url('/es/pagos/') : home_url('/payments/'
                     <strong>Fax:</strong> +1 (210) 349-1080</p>
                     <p><a href="mailto:abraham@tomwilliamscpa.com">abraham@tomwilliamscpa.com</a><br>
                     <a href="mailto:accounting@tomwilliamscpa.com">accounting@tomwilliamscpa.com</a></p>
+                    <div class="tw-contact-details__social" aria-label="<?php echo esc_attr(tw_text('Social media', 'Redes sociales')); ?>">
+                        <a href="https://www.facebook.com/share/1EzyWUrKjV/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook <span aria-hidden="true">↗</span></a>
+                        <a href="https://www.linkedin.com/company/thomas-williams-cpa-pllc/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+                    </div>
                 </div>
             </div>
             <a href="<?php echo esc_url($smartvault_url); ?>" class="tw-contact-details__card tw-contact-details__card--link" target="_blank" rel="noopener noreferrer" data-reveal>
