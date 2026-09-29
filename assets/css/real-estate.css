@@ -36,3 +36,9 @@
 .tw-contact-details__social{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .tw-contact-details__social a{display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border:1px solid rgba(26,41,72,.18);color:#1a2948;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:background-color .2s ease,color .2s ease,border-color .2s ease}
 .tw-contact-details__social a:hover{background:#1a2948;border-color:#1a2948;color:#fff}
+
+.tw-contact-details__social a{padding:0;border:0;background:transparent;text-transform:none;font-size:13px;letter-spacing:0;gap:9px}
+.tw-contact-details__social a:hover{background:transparent;color:#516c7d}
+.tw-social-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#1a2948;color:#fff;transition:transform .2s ease,background-color .2s ease}
+.tw-social-icon svg{width:18px;height:18px}
+.tw-contact-details__social a:hover .tw-social-icon{transform:translateY(-2px);background:#516c7d}
