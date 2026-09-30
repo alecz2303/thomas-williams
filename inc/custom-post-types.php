@@ -29,6 +29,28 @@ function tw_register_property_post_type() {
 }
 add_action('init', 'tw_register_property_post_type');
 
+/**
+ * Team members editable from WordPress.
+ */
+function tw_register_team_member_post_type() {
+    register_post_type('tw_team_member', [
+        'labels' => [
+            'name' => __('Team', 'thomas-williams'),
+            'singular_name' => __('Team Member', 'thomas-williams'),
+            'add_new_item' => __('Add Team Member', 'thomas-williams'),
+            'edit_item' => __('Edit Team Member', 'thomas-williams'),
+            'menu_name' => __('Team', 'thomas-williams'),
+        ],
+        'public' => false,
+        'show_ui' => true,
+        'show_in_rest' => true,
+        'menu_icon' => 'dashicons-groups',
+        'supports' => ['title', 'thumbnail', 'page-attributes'],
+        'menu_position' => 22,
+    ]);
+}
+add_action('init', 'tw_register_team_member_post_type');
+
 
 /**
  * Refresh rewrite rules once for the TW-10 property routes.
