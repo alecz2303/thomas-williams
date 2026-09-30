@@ -16,7 +16,7 @@ $status_labels=['available'=>tw_text('Available','Disponible'),'under-contract'=
 <span class="tw-property-single__status"><?php echo esc_html($status_labels[$meta['status']] ?? $status_labels['available']); ?></span>
 <h1><?php the_title(); ?></h1>
 <?php if ($meta['location']) : ?><p><?php echo esc_html($meta['location']); ?></p><?php endif; ?>
-<?php if ($meta['price']) : ?><strong class="tw-property-single__price"><?php echo esc_html($meta['price']); ?></strong><?php endif; ?>
+<?php if ($meta['price']) : ?><strong class="tw-property-single__price"><?php echo esc_html(tw_format_property_price($meta['price'])); ?></strong><?php endif; ?>
 </div></section>
 <?php if (has_post_thumbnail()) : ?><div class="tw-property-single__image"><?php the_post_thumbnail('full'); ?></div><?php endif; ?>
 <section class="tw-property-single__content"><div class="tw-container tw-property-single__grid">
