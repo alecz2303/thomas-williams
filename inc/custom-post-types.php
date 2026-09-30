@@ -21,9 +21,9 @@ function tw_register_property_post_type() {
         'public' => true,
         'show_in_rest' => true,
         'menu_icon' => 'dashicons-building',
-        'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
-        'has_archive' => 'real-estate',
-        'rewrite' => ['slug' => 'real-estate', 'with_front' => false],
+        'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'],
+        'has_archive' => false,
+        'rewrite' => ['slug' => 'property', 'with_front' => false],
         'menu_position' => 21,
     ]);
 }
@@ -56,7 +56,7 @@ add_action('init', 'tw_register_team_member_post_type');
  * Refresh rewrite rules once for the TW-10 property routes.
  */
 function tw_maybe_flush_property_rewrites() {
-    $rewrite_version = 'tw-10-properties-v1';
+    $rewrite_version = 'tw-10-properties-v2';
     if (get_option('tw_rewrite_version') === $rewrite_version) {
         return;
     }
