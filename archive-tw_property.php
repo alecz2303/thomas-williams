@@ -26,7 +26,7 @@ $labels=['available'=>tw_text('Available','Disponible'),'under-contract'=>tw_tex
 <span class="tw-property-card__status"><?php echo esc_html($labels[$status] ?? $labels['available']); ?></span>
 <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 <?php if ($location) : ?><p class="tw-property-card__location"><?php echo esc_html($location); ?></p><?php endif; ?>
-<?php if ($price) : ?><p class="tw-property-card__price"><?php echo esc_html($price); ?></p><?php endif; ?>
+<?php if ($price) : ?><p class="tw-property-card__price"><?php echo esc_html(tw_format_property_price($price)); ?></p><?php endif; ?>
 <a class="tw-property-card__link" href="<?php the_permalink(); ?>"><?php tw_e('View property', 'Ver propiedad'); ?> →</a>
 </div></article>
 <?php endwhile; ?></div><?php the_posts_pagination(); ?>
