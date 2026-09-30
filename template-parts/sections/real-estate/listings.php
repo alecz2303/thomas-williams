@@ -17,7 +17,7 @@ $labels=['available'=>tw_text('Available','Disponible'),'under-contract'=>tw_tex
 <div class="tw-property-card__body"><span class="tw-property-card__status"><?php echo esc_html($labels[$status] ?? $labels['available']); ?></span>
 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 <?php if($location): ?><p class="tw-property-card__location"><?php echo esc_html($location); ?></p><?php endif; ?>
-<?php if($price): ?><p class="tw-property-card__price"><?php echo esc_html($price); ?></p><?php endif; ?>
+<?php if($price): ?><p class="tw-property-card__price"><?php echo esc_html(tw_format_property_price($price)); ?></p><?php endif; ?>
 <a class="tw-property-card__link" href="<?php the_permalink(); ?>"><?php tw_e('View property','Ver propiedad'); ?> →</a></div></article>
 <?php endwhile; ?></div><?php wp_reset_postdata(); ?>
 <?php else: ?><div class="tw-property-empty" data-reveal><span><?php tw_e('Current Listings','Propiedades Actuales'); ?></span><h3><?php tw_e('New opportunities are coming soon.','Próximamente habrá nuevas oportunidades.'); ?></h3><p><?php tw_e('Contact our team to discuss real estate consulting and current opportunities.','Contacta a nuestro equipo para conversar sobre asesoría de bienes raíces y oportunidades actuales.'); ?></p></div><?php endif; ?>
