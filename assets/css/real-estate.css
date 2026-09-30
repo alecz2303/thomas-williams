@@ -74,3 +74,6 @@
 .tw-property-single__hero{padding-top:44px;padding-bottom:44px}
 .tw-property-single__hero h1{font-size:clamp(38px,11vw,54px)}
 }
+
+/* Property hero title contrast */
+.tw-property-single__hero h1{color:#fff}
