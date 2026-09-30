@@ -12,7 +12,7 @@ $status_labels=['available'=>tw_text('Available','Disponible'),'under-contract'=
 ?>
 <main id="primary" class="site-main tw-property-single">
 <section class="tw-property-single__hero"><div class="tw-container">
-<a class="tw-property-single__back" href="<?php echo esc_url(get_post_type_archive_link('tw_property')); ?>">← <?php tw_e('Real Estate', 'Bienes Raíces'); ?></a>
+<a class="tw-property-single__back" href="<?php echo esc_url(home_url('/real-estate/')); ?>">← <?php tw_e('Real Estate', 'Bienes Raíces'); ?></a>
 <span class="tw-property-single__status"><?php echo esc_html($status_labels[$meta['status']] ?? $status_labels['available']); ?></span>
 <h1><?php the_title(); ?></h1>
 <?php if ($meta['location']) : ?><p><?php echo esc_html($meta['location']); ?></p><?php endif; ?>
