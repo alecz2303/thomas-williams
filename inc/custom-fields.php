@@ -64,7 +64,8 @@ function tw_format_property_price($value) {
     if ($value === '' || $value === null) return '';
     $normalized = preg_replace('/[^0-9.]/', '', (string) $value);
     if ($normalized === '' || !is_numeric($normalized)) return (string) $value;
-    return '
+    return '$' . number_format((float) $normalized, 2, '.', ',');
+}
 
 
 /**
