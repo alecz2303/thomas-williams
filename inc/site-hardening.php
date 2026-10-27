@@ -64,6 +64,7 @@ function tw_harden_document_title_parts($parts)
             'services' => 'Servicios',
             'insights' => 'Artículos',
             'payments' => 'Pagos',
+            'real-estate' => 'Bienes Raíces',
             'contact' => 'Contacto',
             'privacy-policy' => 'Aviso de Privacidad',
             'terms-disclaimer' => 'Términos y Aviso Legal',

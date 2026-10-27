@@ -62,6 +62,13 @@ function tw_enqueue_assets() {
         tw_asset_version('/assets/css/home-international.css')
     );
 
+    wp_enqueue_style(
+        'tw-real-estate',
+        TW_THEME_URI . '/assets/css/real-estate.css',
+        ['tw-home-international'],
+        tw_asset_version('/assets/css/real-estate.css')
+    );
+
     wp_enqueue_script(
         'tw-navigation',
         TW_THEME_URI . '/assets/js/navigation.js',

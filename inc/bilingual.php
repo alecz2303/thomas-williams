@@ -178,6 +178,10 @@ function tw_get_language_url($language)
         ? 'es'
         : 'en';
 
+    if (is_page('real-estate') || is_singular('tw_property')) {
+        return apply_filters('tw_real_estate_language_url', home_url('/'), $language);
+    }
+
 
     /*
      * Homepage.

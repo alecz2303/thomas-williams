@@ -30,6 +30,10 @@ get_header();
     );
 
     get_template_part(
+        'template-parts/sections/about/team'
+    );
+
+    get_template_part(
         'template-parts/sections/about/approach'
     );
 
