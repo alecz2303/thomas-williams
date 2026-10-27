@@ -36,6 +36,7 @@ $tw_theme_files = [
     '/inc/contact-form.php',
     '/inc/bilingual.php',
     '/inc/site-hardening.php',
+    '/inc/real-estate-routes.php',
 
     // Integraciones.
     '/inc/integrations/smartvault.php',

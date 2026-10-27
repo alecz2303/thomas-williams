@@ -45,8 +45,8 @@ $about_url    = tw_is_spanish() ? home_url('/es/nosotros/') : home_url('/about/'
 
         <div class="tw-hero__media" data-reveal>
             <div class="tw-hero__image-wrap">
-                <img src="<?php echo esc_url(TW_THEME_URI . '/assets/images/home/hero.png'); ?>"
-                    alt="<?php echo esc_attr(tw_text('Professional environment representing accounting and business advisory services.', 'Entorno profesional que representa servicios de contabilidad y asesoría de negocios.')); ?>"
+                <img src="<?php echo esc_url(TW_THEME_URI . '/assets/images/home/san-antonio-sunset.webp'); ?>"
+                    alt="<?php echo esc_attr(tw_text('Illustrated San Antonio skyline at sunset.', 'Ilustración del horizonte de San Antonio al atardecer.')); ?>"
                     class="tw-hero__image" data-hero-image>
                 <div class="tw-hero__image-overlay" aria-hidden="true"></div>
                 <div class="tw-hero__image-note">
