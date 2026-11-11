@@ -113,3 +113,15 @@ body > .tw-property-lightbox .tw-property-lightbox__photo{position:absolute!impo
 body > .tw-property-lightbox .tw-property-lightbox__close{z-index:2}
 body > .tw-property-lightbox .tw-property-lightbox__prev,body > .tw-property-lightbox .tw-property-lightbox__next{z-index:2}
 @media(max-width:640px){body > .tw-property-lightbox .tw-property-lightbox__photo{max-width:calc(100vw - 34px)!important;max-height:calc(100dvh - 145px)!important}}
+
+/* TW-12 Real Estate agent spotlight - Tania Valencia */
+.tw-real-estate-agent{padding:96px 0;background:#f7f5f1}
+.tw-real-estate-agent__grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(40px,6vw,90px);align-items:center}
+.tw-real-estate-agent__photo{aspect-ratio:4/5;overflow:hidden;background:#ded9ce}
+.tw-real-estate-agent__photo img{display:block;width:100%;height:100%;object-fit:cover}
+.tw-real-estate-agent__eyebrow{display:block;margin-bottom:18px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#516c7d}
+.tw-real-estate-agent h2{margin:0;font-family:var(--tw-font-heading);font-size:clamp(40px,5vw,64px);line-height:1.02;color:#1a2948}
+.tw-real-estate-agent__role{margin:16px 0 0;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#516c7d}
+.tw-real-estate-agent p{margin:22px 0 0;font-size:17px;line-height:1.8;color:#555}
+.tw-real-estate-agent__link{display:inline-block;margin-top:28px;color:#1a2948;text-decoration:none;text-transform:uppercase;letter-spacing:.1em;font-size:12px;border-bottom:1px solid rgba(26,41,72,.4);padding-bottom:7px}
+@media(max-width:800px){.tw-real-estate-agent{padding:72px 0}.tw-real-estate-agent__grid{grid-template-columns:1fr;gap:36px}.tw-real-estate-agent__photo{max-width:480px}}

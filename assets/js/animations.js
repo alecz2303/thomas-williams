@@ -221,10 +221,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
 
             const translate =
-                -8 + progress * 12;
+                -6 + progress * 10;
 
             const scale =
-                1.04 + progress * .04;
+                1.02 + progress * .02;
 
             heroImage.style.transform =
                 `translateY(${translate}%) scale(${scale})`;
