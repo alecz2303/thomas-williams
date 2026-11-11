@@ -548,7 +548,6 @@ body.admin-bar .tw-header {
     position: relative;
 
     display: flex;
-    flex-direction: column;
     align-items: center;
 
     min-height:
@@ -560,7 +559,7 @@ body.admin-bar .tw-header {
         var(--tw-header-height);
 
     background:
-        var(--tw-blue-deep);
+        var(--tw-white);
 }
 
 .tw-hero__inner {
@@ -570,7 +569,7 @@ body.admin-bar .tw-header {
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1fr);
+        minmax(0, .95fr) minmax(400px, .85fr);
 
     align-items: center;
 
@@ -598,7 +597,7 @@ body.admin-bar .tw-header {
         0 0 24px;
 
     color:
-        var(--tw-white);
+        var(--tw-blue);
 
     font-size: 11px;
     font-weight: 600;
@@ -620,14 +619,14 @@ body.admin-bar .tw-header {
     height: 2px;
 
     background:
-        var(--tw-white);
+        var(--tw-blue);
 }
 
 .tw-hero__title {
     margin: 0;
 
     color:
-        var(--tw-white);
+        var(--tw-text);
 
     font-family:
         "Inter",
@@ -654,7 +653,7 @@ body.admin-bar .tw-header {
 
 .tw-hero__title-line--accent {
     color:
-        var(--tw-blue-light);
+        var(--tw-blue);
 
     font-style: normal;
 }
@@ -666,7 +665,7 @@ body.admin-bar .tw-header {
         28px 0 0;
 
     color:
-        rgba(255, 255, 255, .85);
+        var(--tw-text-soft);
 
     font-size: 16px;
 
@@ -683,17 +682,14 @@ body.admin-bar .tw-header {
     margin-top: 32px;
 }
 
-.tw-hero .tw-button--text {
-    color:
-        var(--tw-white);
+.tw-hero__media {
+    position: relative;
 
-    border-bottom-color:
-        rgba(255, 255, 255, .45);
-}
+    width: 100%;
 
-.tw-hero .tw-button--text:hover {
-    border-color:
-        var(--tw-white);
+    max-width: 590px;
+
+    justify-self: end;
 }
 
 .tw-hero__image-wrap {
@@ -718,12 +714,12 @@ body.admin-bar .tw-header {
 
 .tw-hero__image {
     width: 100%;
-    height: 114%;
+    height: 108%;
 
     object-fit: cover;
 
     transform:
-        translateY(-7%);
+        translateY(-4%);
 
     will-change:
         transform;
@@ -737,25 +733,17 @@ body.admin-bar .tw-header {
     pointer-events: none;
 
     background:
-        linear-gradient(100deg,
-            rgba(14, 23, 41, .88),
-            rgba(14, 23, 41, .62) 48%,
-            rgba(14, 23, 41, .22) 78%,
-            rgba(14, 23, 41, .12)),
         linear-gradient(to top,
-            rgba(14, 23, 41, .55),
-            rgba(14, 23, 41, 0) 45%);
+            rgba(7, 61, 87, .26),
+            rgba(7, 61, 87, 0) 46%);
 }
 
 .tw-hero__image-note {
     position: absolute;
-    z-index: 3;
 
-    left:
-        max(24px, calc((100% - 1280px) / 2 + 24px));
-    right:
-        max(24px, calc((100% - 1280px) / 2 + 24px));
-    bottom: 24px;
+    left: 22px;
+    right: 22px;
+    bottom: 20px;
 
     display: flex;
     justify-content: space-between;
@@ -780,16 +768,6 @@ body.admin-bar .tw-header {
 
     letter-spacing:
         .11em;
-}
-
-.tw-hero__background .tw-hero__image-wrap {
-    height: 100%;
-
-    aspect-ratio: auto;
-
-    border-radius: 0;
-
-    box-shadow: none;
 }
 
 .tw-hero__background {

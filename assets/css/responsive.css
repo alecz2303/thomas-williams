@@ -437,6 +437,19 @@
         max-width: 820px;
     }
 
+    .tw-hero__media {
+        width:
+            min(100%, 820px);
+
+        max-width: none;
+
+        justify-self: start;
+    }
+
+    .tw-hero__image-wrap {
+        aspect-ratio:
+            16 / 9;
+    }
 
 
     /* --------------------------------------------------------
@@ -751,6 +764,10 @@
         max-width: 620px;
     }
 
+    .tw-hero__image-wrap {
+        aspect-ratio:
+            4 / 3;
+    }
 
 
     /* --------------------------------------------------------
@@ -1153,6 +1170,13 @@
         margin-top: 26px;
     }
 
+    .tw-hero__image-wrap {
+        aspect-ratio:
+            4 / 3;
+
+        border-radius:
+            var(--tw-radius-sm);
+    }
 
     .tw-hero__image-note {
         left: 15px;
