@@ -548,6 +548,7 @@ body.admin-bar .tw-header {
     position: relative;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
 
     min-height:
@@ -569,7 +570,7 @@ body.admin-bar .tw-header {
     display: grid;
 
     grid-template-columns:
-        minmax(0, .95fr) minmax(400px, .85fr);
+        minmax(0, 1fr);
 
     align-items: center;
 
@@ -682,16 +683,6 @@ body.admin-bar .tw-header {
     margin-top: 32px;
 }
 
-.tw-hero__media {
-    position: relative;
-
-    width: 100%;
-
-    max-width: 590px;
-
-    justify-self: end;
-}
-
 .tw-hero__image-wrap {
     position: relative;
 
@@ -768,6 +759,34 @@ body.admin-bar .tw-header {
 
     letter-spacing:
         .11em;
+}
+
+.tw-hero__banner {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height:
+        clamp(360px, 42vw, 560px);
+
+    overflow: hidden;
+}
+
+.tw-hero__banner .tw-hero__image-wrap {
+    height: 100%;
+
+    aspect-ratio: auto;
+
+    border-radius: 0;
+
+    box-shadow: none;
+}
+
+.tw-hero__banner .tw-hero__image-note {
+    left:
+        max(24px, calc((100% - 1280px) / 2 + 24px));
+    right:
+        max(24px, calc((100% - 1280px) / 2 + 24px));
 }
 
 .tw-hero__background {
