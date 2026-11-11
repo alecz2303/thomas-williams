@@ -14,6 +14,12 @@ $about_url    = tw_is_spanish() ? home_url('/es/nosotros/') : home_url('/about/'
 ?>
 <section class="tw-hero">
     <div class="tw-hero__background" aria-hidden="true">
+        <div class="tw-hero__image-wrap">
+            <img src="<?php echo esc_url(TW_THEME_URI . '/assets/images/home/san-antonio-downtown.webp'); ?>"
+                alt="<?php echo esc_attr(tw_text('Downtown San Antonio towers and the River Walk.', 'Torres del centro de San Antonio y el River Walk.')); ?>"
+                class="tw-hero__image" data-hero-image>
+            <div class="tw-hero__image-overlay" aria-hidden="true"></div>
+        </div>
         <div class="tw-hero__grid"></div>
         <div class="tw-hero__glow tw-hero__glow--one"></div>
         <div class="tw-hero__glow tw-hero__glow--two"></div>
@@ -42,19 +48,11 @@ $about_url    = tw_is_spanish() ? home_url('/es/nosotros/') : home_url('/about/'
                 </a>
             </div>
         </div>
+    </div>
 
-        <div class="tw-hero__media" data-reveal>
-            <div class="tw-hero__image-wrap">
-                <img src="<?php echo esc_url(TW_THEME_URI . '/assets/images/home/san-antonio-sunset.webp'); ?>"
-                    alt="<?php echo esc_attr(tw_text('Illustrated San Antonio skyline at sunset.', 'Ilustración del horizonte de San Antonio al atardecer.')); ?>"
-                    class="tw-hero__image" data-hero-image>
-                <div class="tw-hero__image-overlay" aria-hidden="true"></div>
-                <div class="tw-hero__image-note">
-                    <span>San Antonio, Texas</span>
-                    <span><?php tw_e('More than three decades of experience', 'Más de tres décadas de experiencia'); ?></span>
-                </div>
-            </div>
-        </div>
+    <div class="tw-hero__image-note">
+        <span>San Antonio, Texas</span>
+        <span><?php tw_e('More than three decades of experience', 'Más de tres décadas de experiencia'); ?></span>
     </div>
 
     <div class="tw-hero__scroll" aria-hidden="true">
