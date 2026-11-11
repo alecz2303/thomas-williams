@@ -44,7 +44,7 @@ $about_url    = tw_is_spanish() ? home_url('/es/nosotros/') : home_url('/about/'
         </div>
     </div>
 
-    <div class="tw-hero__banner" data-reveal>
+    <div class="tw-hero__banner">
         <div class="tw-hero__image-wrap">
             <img src="<?php echo esc_url(TW_THEME_URI . '/assets/images/home/san-antonio-downtown.webp'); ?>"
                 alt="<?php echo esc_attr(tw_text('Downtown San Antonio towers and the River Walk.', 'Torres del centro de San Antonio y el River Walk.')); ?>"
