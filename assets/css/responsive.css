@@ -437,10 +437,6 @@
         max-width: 820px;
     }
 
-    .tw-hero__banner {
-        height:
-            clamp(320px, 48vw, 460px);
-    }
 
 
     /* --------------------------------------------------------
@@ -755,9 +751,6 @@
         max-width: 620px;
     }
 
-    .tw-hero__banner {
-        height: 320px;
-    }
 
 
     /* --------------------------------------------------------
@@ -1160,13 +1153,6 @@
         margin-top: 26px;
     }
 
-    .tw-hero__banner {
-        height: 280px;
-    }
-
-    .tw-hero__banner .tw-hero__image-wrap {
-        border-radius: 0;
-    }
 
     .tw-hero__image-note {
         left: 15px;
